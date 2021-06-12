@@ -36,7 +36,7 @@
 #          Define Analysis Type										  
 ###################################################################################################
 # Define type of analysis:  "pushover" = pushover;  "dynamic" = dynamic
-	set analysisType "dynamic";
+	set analysisType "pushover";
 	
 	if {$analysisType == "pushover"} {
 		set dataDir Concentrated-PanelZone-Pushover-Output;	# name of output folder
@@ -51,36 +51,47 @@
 #          Define Building Geometry, Nodes, Masses, and Constraints											  
 ###################################################################################################
 # define structure-geometry parameters
-	set NStories 2;						# number of stories
-	set NBays 1;						# number of frame bays (excludes bay for P-delta column)
-	set WBay      [expr 30.0*12.0];		# bay width in inches
-	set HStory1   [expr 15.0*12.0];		# 1st story height in inches
-	set HStoryTyp [expr 12.0*12.0];		# story height of other stories in inches
+	set NStories 8;						# number of stories
+	set NBays 3;						# number of frame bays (excludes bay for P-delta column)
+	set WBay      [expr 20.01*12.0];		# bay width in inches
+	set HStory1   [expr 15.09*12.0];		# 1st story height in inches
+	set HStoryTyp [expr 13.12*12.0];		# story height of other stories in inches
 	set HBuilding [expr $HStory1 + ($NStories-1)*$HStoryTyp];	# height of building
 
 # calculate locations of beam-column joint centerlines:
 	set Pier1  0.0;		# leftmost column line
 	set Pier2  [expr $Pier1 + $WBay];
-	set Pier3  [expr $Pier2 + $WBay];	# P-delta column line	
+	set Pier3  [expr $Pier2 + $WBay];	
+	set Pier4  [expr $Pier3 + $WBay];
+	set Pier5  [expr $Pier4 + $WBay];  # P-delta column line
+	
 	set Floor1 0.0;		# ground floor
 	set Floor2 [expr $Floor1 + $HStory1];
 	set Floor3 [expr $Floor2 + $HStoryTyp];
+	set Floor4 [expr $Floor3 + $HStoryTyp];
+	set Floor5 [expr $Floor4 + $HStoryTyp];
+	set Floor6 [expr $Floor5 + $HStoryTyp];
+	set Floor7 [expr $Floor6 + $HStoryTyp];
+	set Floor8 [expr $Floor7 + $HStoryTyp];
+	set Floor9 [expr $Floor8 + $HStoryTyp];
 	
 # calculate panel zone dimensions
-	set pzlat23  [expr 24.5/2.0];	# lateral dist from CL of beam-col joint to edge of panel zone (= half the column depth)
-	set pzvert23 [expr 27.1/2.0];	# vert dist from CL of beam-col joint to edge of panel zone (= half the beam depth)
+	set pzlat234   [expr 24.5/2.0];	# lateral dist from CL of beam-col joint to edge of panel zone (= half the column depth)
+	set pzvert234 [expr 27.1/2.0];	# vert dist from CL of beam-col joint to edge of panel zone (= half the beam depth)
 
 # calculate plastic hinge offsets from beam-column centerlines:
-	set phlat23 [expr $pzlat23 + 7.5 + 22.5/2.0];	# lateral dist from CL of beam-col joint to beam hinge
-	set phvert23 [expr $pzvert23 + 0.0];			# vert dist from CL of beam-col joint to column hinge (forms at edge of panel zone)
+	set phlat234 [expr $pzlat234  + 7.5 + 22.5/2.0];	# lateral dist from CL of beam-col joint to beam hinge
+	set phvert234 [expr $pzvert234 + 0.0];			# vert dist from CL of beam-col joint to column hinge (forms at edge of panel zone)
 
 # calculate nodal masses -- lump floor masses at frame nodes
 	set g 386.2;				# acceleration due to gravity
 	set Floor2Weight 535.0;		# weight of Floor 2 in kips
 	set Floor3Weight 525.0;		# weight of Floor 3 in kips
+	set Floor4Weight 525.0;		# weight of Floor 4 in kips
 	set WBuilding  [expr $Floor2Weight + $Floor3Weight];# total building weight
 	set NodalMass2 [expr ($Floor2Weight/$g) / (2.0)];	# mass at each node on Floor 2
 	set NodalMass3 [expr ($Floor3Weight/$g) / (2.0)];	# mass at each node on Floor 3
+	set NodalMass4 [expr ($Floor4Weight/$g) / (2.0)];	# mass at each node on Floor 4
 	set Negligible 1e-9;	# a very small number to avoid problems with zero
 
 # define nodes and assign masses to beam-column intersections of frame
@@ -91,6 +102,7 @@
 	node 31 $Pier3 $Floor1;
 	node 32 $Pier3 $Floor2;
 	node 33 $Pier3 $Floor3;
+	node 34 $Pier3 $Floor4;
 
 # define extra nodes for plastic hinge rotational springs
 	# nodeID convention:  "xya" where x = Pier #, y = Floor #, a = location relative to beam-column joint
@@ -100,34 +112,51 @@
 	node 117 $Pier1 $Floor1;
 	node 217 $Pier2 $Floor1;
 	# column hinges at top of Story 1
-	node 125 $Pier1 [expr $Floor2 - $phvert23];
-	node 126 $Pier1 [expr $Floor2 - $phvert23];
-	node 225 $Pier2 [expr $Floor2 - $phvert23];
-	node 226 $Pier2 [expr $Floor2 - $phvert23];
+	node 125 $Pier1 [expr $Floor2 - $phvert234];
+	node 126 $Pier1 [expr $Floor2 - $phvert234];
+	node 225 $Pier2 [expr $Floor2 - $phvert234];
+	node 226 $Pier2 [expr $Floor2 - $phvert234];
 	node 326 $Pier3 $Floor2;	# zero-stiffness spring will be used on p-delta column
 	# column hinges at bottom of Story 2
-	node 127 $Pier1 [expr $Floor2 + $phvert23];
-	node 128 $Pier1 [expr $Floor2 + $phvert23];
-	node 227 $Pier2 [expr $Floor2 + $phvert23];
-	node 228 $Pier2 [expr $Floor2 + $phvert23];
+	node 127 $Pier1 [expr $Floor2 + $phvert234];
+	node 128 $Pier1 [expr $Floor2 + $phvert234];
+	node 227 $Pier2 [expr $Floor2 + $phvert234];
+	node 228 $Pier2 [expr $Floor2 + $phvert234];
 	node 327 $Pier3 $Floor2;	# zero-stiffness spring will be used on p-delta column
 	# column hinges at top of Story 2
-	node 135 $Pier1 [expr $Floor3 - $phvert23];
-	node 136 $Pier1 [expr $Floor3 - $phvert23];
-	node 235 $Pier2 [expr $Floor3 - $phvert23];
-	node 236 $Pier2 [expr $Floor3 - $phvert23];
+	node 135 $Pier1 [expr $Floor3 - $phvert234];
+	node 136 $Pier1 [expr $Floor3 - $phvert234];
+	node 235 $Pier2 [expr $Floor3 - $phvert234];
+	node 236 $Pier2 [expr $Floor3 - $phvert234];
 	node 336 $Pier3 $Floor3;	# zero-stiffness spring will be used on p-delta column
+	# column hinges at bottom of Story 3
+	node 137 $Pier1 [expr $Floor3 + $phvert234];
+	node 138 $Pier1 [expr $Floor3 + $phvert234];
+	node 237 $Pier2 [expr $Floor3 + $phvert234];
+	node 238 $Pier2 [expr $Floor3 + $phvert234];
+	node 337 $Pier3 $Floor3;	# zero-stiffness spring will be used on p-delta column
+	# column hinges at top of Story 3
+	node 145 $Pier1 [expr $Floor4 - $phvert234];
+	node 146 $Pier1 [expr $Floor4 - $phvert234];
+	node 245 $Pier2 [expr $Floor4 - $phvert234];
+	node 246 $Pier2 [expr $Floor4 - $phvert234];
+	node 346 $Pier3 $Floor4;	# zero-stiffness spring will be used on p-delta column
 
 	# beam hinges at Floor 2
-	node 121 [expr $Pier1 + $phlat23] $Floor2;
-	node 122 [expr $Pier1 + $phlat23] $Floor2;
-	node 223 [expr $Pier2 - $phlat23] $Floor2;
-	node 224 [expr $Pier2 - $phlat23] $Floor2;
+	node 121 [expr $Pier1 + $phlat234] $Floor2;
+	node 122 [expr $Pier1 + $phlat234] $Floor2;
+	node 223 [expr $Pier2 - $phlat234] $Floor2;
+	node 224 [expr $Pier2 - $phlat234] $Floor2;
 	# beam hinges at Floor 3
-	node 131 [expr $Pier1 + $phlat23] $Floor3;
-	node 132 [expr $Pier1 + $phlat23] $Floor3;
-	node 233 [expr $Pier2 - $phlat23] $Floor3;
-	node 234 [expr $Pier2 - $phlat23] $Floor3;
+	node 131 [expr $Pier1 + $phlat234] $Floor3;
+	node 132 [expr $Pier1 + $phlat234] $Floor3;
+	node 233 [expr $Pier2 - $phlat234] $Floor3;
+	node 234 [expr $Pier2 - $phlat234] $Floor3;
+	# beam hinges at Floor 4
+	node 141 [expr $Pier1 + $phlat234] $Floor4;
+	node 142 [expr $Pier1 + $phlat234] $Floor4;
+	node 243 [expr $Pier2 - $phlat234] $Floor4;
+	node 244 [expr $Pier2 - $phlat234] $Floor4;
 	
 # define extra nodes for panel zones
 	# nodeID convention:  "xybc" where x = Pier #, y = Floor #, bc = location relative to beam-column joint
@@ -140,54 +169,78 @@
 	# note: top center and btm center nodes were previously defined as xy7 and xy6, respectively, at Floor 2(center = horizonal center)
 
 	# panel zone at Pier 1, Floor 2
-	node 1201 [expr $Pier1 - $pzlat23] [expr $Floor2 + $phvert23];
-	node 1202 [expr $Pier1 - $pzlat23] [expr $Floor2 + $phvert23];
-	node 1203 [expr $Pier1 + $pzlat23] [expr $Floor2 + $phvert23];
-	node 1204 [expr $Pier1 + $pzlat23] [expr $Floor2 + $phvert23];
-	node 1205 [expr $Pier1 + $pzlat23] [expr $Floor2];
-	node 1206 [expr $Pier1 + $pzlat23] [expr $Floor2 - $phvert23];
-	node 1207 [expr $Pier1 + $pzlat23] [expr $Floor2 - $phvert23];
-	node 1208 [expr $Pier1 - $pzlat23] [expr $Floor2 - $phvert23];
-	node 1209 [expr $Pier1 - $pzlat23] [expr $Floor2 - $phvert23];
-	node 1210 [expr $Pier1 - $pzlat23] [expr $Floor2];
+	node 1201 [expr $Pier1 - $pzlat234 ] [expr $Floor2 + $phvert234];
+	node 1202 [expr $Pier1 - $pzlat234 ] [expr $Floor2 + $phvert234];
+	node 1203 [expr $Pier1 + $pzlat234 ] [expr $Floor2 + $phvert234];
+	node 1204 [expr $Pier1 + $pzlat234 ] [expr $Floor2 + $phvert234];
+	node 1205 [expr $Pier1 + $pzlat234 ] [expr $Floor2];
+	node 1206 [expr $Pier1 + $pzlat234 ] [expr $Floor2 - $phvert234];
+	node 1207 [expr $Pier1 + $pzlat234 ] [expr $Floor2 - $phvert234];
+	node 1208 [expr $Pier1 - $pzlat234 ] [expr $Floor2 - $phvert234];
+	node 1209 [expr $Pier1 - $pzlat234 ] [expr $Floor2 - $phvert234];
+	node 1210 [expr $Pier1 - $pzlat234 ] [expr $Floor2];
 	
 	# panel zone at Pier 2, Floor 2
-	node 2201 [expr $Pier2 - $pzlat23] [expr $Floor2 + $phvert23];
-	node 2202 [expr $Pier2 - $pzlat23] [expr $Floor2 + $phvert23];
-	node 2203 [expr $Pier2 + $pzlat23] [expr $Floor2 + $phvert23];
-	node 2204 [expr $Pier2 + $pzlat23] [expr $Floor2 + $phvert23];
-	node 2205 [expr $Pier2 + $pzlat23] [expr $Floor2];
-	node 2206 [expr $Pier2 + $pzlat23] [expr $Floor2 - $phvert23];
-	node 2207 [expr $Pier2 + $pzlat23] [expr $Floor2 - $phvert23];
-	node 2208 [expr $Pier2 - $pzlat23] [expr $Floor2 - $phvert23];
-	node 2209 [expr $Pier2 - $pzlat23] [expr $Floor2 - $phvert23];
-	node 2210 [expr $Pier2 - $pzlat23] [expr $Floor2];
+	node 2201 [expr $Pier2 - $pzlat234 ] [expr $Floor2 + $phvert234];
+	node 2202 [expr $Pier2 - $pzlat234 ] [expr $Floor2 + $phvert234];
+	node 2203 [expr $Pier2 + $pzlat234 ] [expr $Floor2 + $phvert234];
+	node 2204 [expr $Pier2 + $pzlat234 ] [expr $Floor2 + $phvert234];
+	node 2205 [expr $Pier2 + $pzlat234 ] [expr $Floor2];
+	node 2206 [expr $Pier2 + $pzlat234 ] [expr $Floor2 - $phvert234];
+	node 2207 [expr $Pier2 + $pzlat234 ] [expr $Floor2 - $phvert234];
+	node 2208 [expr $Pier2 - $pzlat234 ] [expr $Floor2 - $phvert234];
+	node 2209 [expr $Pier2 - $pzlat234 ] [expr $Floor2 - $phvert234];
+	node 2210 [expr $Pier2 - $pzlat234 ] [expr $Floor2];
 	
 	# panel zone at Pier 1, Floor 3
-	node 1301 [expr $Pier1 - $pzlat23] [expr $Floor3 + $phvert23];
-	node 1302 [expr $Pier1 - $pzlat23] [expr $Floor3 + $phvert23];
-	node 1303 [expr $Pier1 + $pzlat23] [expr $Floor3 + $phvert23];
-	node 1304 [expr $Pier1 + $pzlat23] [expr $Floor3 + $phvert23];
-	node 1305 [expr $Pier1 + $pzlat23] [expr $Floor3];
-	node 1306 [expr $Pier1 + $pzlat23] [expr $Floor3 - $phvert23];
-	node 1307 [expr $Pier1 + $pzlat23] [expr $Floor3 - $phvert23];
-	node 1308 [expr $Pier1 - $pzlat23] [expr $Floor3 - $phvert23];
-	node 1309 [expr $Pier1 - $pzlat23] [expr $Floor3 - $phvert23];
-	node 1310 [expr $Pier1 - $pzlat23] [expr $Floor3];
-	node 137  [expr $Pier1]  [expr $Floor3 + $phvert23]; # not previously defined since no column above
+	node 1301 [expr $Pier1 - $pzlat234 ] [expr $Floor3 + $phvert234];
+	node 1302 [expr $Pier1 - $pzlat234 ] [expr $Floor3 + $phvert234];
+	node 1303 [expr $Pier1 + $pzlat234 ] [expr $Floor3 + $phvert234];
+	node 1304 [expr $Pier1 + $pzlat234 ] [expr $Floor3 + $phvert234];
+	node 1305 [expr $Pier1 + $pzlat234 ] [expr $Floor3];
+	node 1306 [expr $Pier1 + $pzlat234 ] [expr $Floor3 - $phvert234];
+	node 1307 [expr $Pier1 + $pzlat234 ] [expr $Floor3 - $phvert234];
+	node 1308 [expr $Pier1 - $pzlat234 ] [expr $Floor3 - $phvert234];
+	node 1309 [expr $Pier1 - $pzlat234 ] [expr $Floor3 - $phvert234];
+	node 1310 [expr $Pier1 - $pzlat234 ] [expr $Floor3];
 	
 	# panel zone at Pier 2, Floor 3
-	node 2301 [expr $Pier2 - $pzlat23] [expr $Floor3 + $phvert23];
-	node 2302 [expr $Pier2 - $pzlat23] [expr $Floor3 + $phvert23];
-	node 2303 [expr $Pier2 + $pzlat23] [expr $Floor3 + $phvert23];
-	node 2304 [expr $Pier2 + $pzlat23] [expr $Floor3 + $phvert23];
-	node 2305 [expr $Pier2 + $pzlat23] [expr $Floor3];
-	node 2306 [expr $Pier2 + $pzlat23] [expr $Floor3 - $phvert23];
-	node 2307 [expr $Pier2 + $pzlat23] [expr $Floor3 - $phvert23];
-	node 2308 [expr $Pier2 - $pzlat23] [expr $Floor3 - $phvert23];
-	node 2309 [expr $Pier2 - $pzlat23] [expr $Floor3 - $phvert23];
-	node 2310 [expr $Pier2 - $pzlat23] [expr $Floor3];
-	node 237  [expr $Pier2]  [expr $Floor3 + $phvert23]; # not previously defined since no column above
+	node 2301 [expr $Pier2 - $pzlat234 ] [expr $Floor3 + $phvert234];
+	node 2302 [expr $Pier2 - $pzlat234 ] [expr $Floor3 + $phvert234];
+	node 2303 [expr $Pier2 + $pzlat234 ] [expr $Floor3 + $phvert234];
+	node 2304 [expr $Pier2 + $pzlat234 ] [expr $Floor3 + $phvert234];
+	node 2305 [expr $Pier2 + $pzlat234 ] [expr $Floor3];
+	node 2306 [expr $Pier2 + $pzlat234 ] [expr $Floor3 - $phvert234];
+	node 2307 [expr $Pier2 + $pzlat234 ] [expr $Floor3 - $phvert234];
+	node 2308 [expr $Pier2 - $pzlat234 ] [expr $Floor3 - $phvert234];
+	node 2309 [expr $Pier2 - $pzlat234 ] [expr $Floor3 - $phvert234];
+	node 2310 [expr $Pier2 - $pzlat234 ] [expr $Floor3];
+	
+	# panel zone at Pier 1, Floor 4
+	node 1401 [expr $Pier1 - $pzlat234 ] [expr $Floor4 + $phvert234];
+	node 1402 [expr $Pier1 - $pzlat234 ] [expr $Floor4 + $phvert234];
+	node 1403 [expr $Pier1 + $pzlat234 ] [expr $Floor4 + $phvert234];
+	node 1404 [expr $Pier1 + $pzlat234 ] [expr $Floor4 + $phvert234];
+	node 1405 [expr $Pier1 + $pzlat234 ] [expr $Floor4];
+	node 1406 [expr $Pier1 + $pzlat234 ] [expr $Floor4 - $phvert234];
+	node 1407 [expr $Pier1 + $pzlat234 ] [expr $Floor4 - $phvert234];
+	node 1408 [expr $Pier1 - $pzlat234 ] [expr $Floor4 - $phvert234];
+	node 1409 [expr $Pier1 - $pzlat234 ] [expr $Floor4 - $phvert234];
+	node 1410 [expr $Pier1 - $pzlat234 ] [expr $Floor4];
+	node 147  [expr $Pier1]  [expr $Floor4 + $phvert234]; # not previously defined since no column above
+	
+	# panel zone at Pier 2, Floor 4
+	node 2401 [expr $Pier2 - $pzlat234 ] [expr $Floor4 + $phvert234];
+	node 2402 [expr $Pier2 - $pzlat234 ] [expr $Floor4 + $phvert234];
+	node 2403 [expr $Pier2 + $pzlat234 ] [expr $Floor4 + $phvert234];
+	node 2404 [expr $Pier2 + $pzlat234 ] [expr $Floor4 + $phvert234];
+	node 2405 [expr $Pier2 + $pzlat234 ] [expr $Floor4];
+	node 2406 [expr $Pier2 + $pzlat234 ] [expr $Floor4 - $phvert234];
+	node 2407 [expr $Pier2 + $pzlat234 ] [expr $Floor4 - $phvert234];
+	node 2408 [expr $Pier2 - $pzlat234 ] [expr $Floor4 - $phvert234];
+	node 2409 [expr $Pier2 - $pzlat234 ] [expr $Floor4 - $phvert234];
+	node 2410 [expr $Pier2 - $pzlat234 ] [expr $Floor4];
+	node 247  [expr $Pier2]  [expr $Floor4 + $phvert234]; # not previously defined since no column above
 	
 # define nodal masses:  lump at beam-column joints in frame
 	# command: mass $nodeID $dof1mass $dof2mass $dof3mass
@@ -195,6 +248,8 @@
 	mass 2205 $NodalMass2 $Negligible $Negligible;	# Pier 2, Floor 2
 	mass 1305 $NodalMass3 $Negligible $Negligible;	# Pier 1, Floor 3
 	mass 2305 $NodalMass3 $Negligible $Negligible;	# Pier 2, Floor 3
+	mass 1405 $NodalMass4 $Negligible $Negligible;	# Pier 1, Floor 4
+	mass 2405 $NodalMass4 $Negligible $Negligible;	# Pier 2, Floor 4
 
 # constrain beam-column joints in a floor to have the same lateral displacement using the "equalDOF" command
 	# command: equalDOF $MasterNodeID $SlaveNodeID $dof1 $dof2...
@@ -203,6 +258,8 @@
 	equalDOF 1205 32 $dof1;		# Floor 2:  Pier 1 to Pier 3
 	equalDOF 1305 2305 $dof1;	# Floor 3:  Pier 1 to Pier 2
 	equalDOF 1305 33 $dof1;		# Floor 3:  Pier 1 to Pier 3
+	equalDOF 1405 2405 $dof1;	# Floor 4:  Pier 1 to Pier 2
+	equalDOF 1405 34 $dof1;		# Floor 4:  Pier 1 to Pier 3
 
 # assign boundary condidtions 
 	# command:  fix nodeID dxFixity dyFixity rzFixity
@@ -219,7 +276,7 @@
 	set Es 29000.0;			# steel Young's modulus
 	set Fy 50.0;			# steel yield strength
 
-# define column section W24x131 for Story 1 & 2
+# define column section W24x131 for Story 1,2 & 3
 	set Acol_12  38.5;		# cross-sectional area
 	set Icol_12  4020.0;	# moment of inertia
 	set Mycol_12 20350.0;	# yield moment at plastic hinge location (i.e., My of RBS section)
@@ -228,7 +285,7 @@
 	set tfcol_12 0.96;		# flange thickness
 	set twcol_12 0.605;		# web thickness
 
-# define beam section W27x102 for Floor 2 & 3
+# define beam section W27x102 for Floor 2,3 & 4
 	set Abeam_23  30.0;		# cross-sectional area (full section properties)
 	set Ibeam_23  3620.0;	# moment of inertia  (full section properties)
 	set Mybeam_23 10938.0;	# yield moment at plastic hinge location (i.e., My of RBS section)
@@ -243,13 +300,14 @@
 	set n 10.0;		# stiffness multiplier for rotational spring
 
 	# calculate modified moment of inertia for elastic elements between plastic hinge springs
-	set Icol_12mod  [expr $Icol_12*($n+1.0)/$n];	# modified moment of inertia for columns in Story 1 & 2
-	set Ibeam_23mod [expr $Ibeam_23*($n+1.0)/$n];	# modified moment of inertia for beams in Floor 2 & 3
+	set Icol_12mod  [expr $Icol_12*($n+1.0)/$n];	# modified moment of inertia for columns in Story 1,2 & 3
+	set Ibeam_23mod [expr $Ibeam_23*($n+1.0)/$n];	# modified moment of inertia for beams in Floor 2,3 & 4
 	
 	# calculate modified rotational stiffness for plastic hinge springs: use length between springs
-	set Ks_col_1   [expr $n*6.0*$Es*$Icol_12mod/($HStory1-$phvert23)];		# rotational stiffness of Story 1 column springs
-	set Ks_col_2   [expr $n*6.0*$Es*$Icol_12mod/($HStoryTyp-2*$phvert23)];	# rotational stiffness of Story 2 column springs
-	set Ks_beam_23 [expr $n*6.0*$Es*$Ibeam_23mod/($WBay-2*$phlat23)];		# rotational stiffness of Floor 2 & 3 beam springs
+	set Ks_col_1   [expr $n*6.0*$Es*$Icol_12mod/($HStory1-$phvert234)];		# rotational stiffness of Story 1 column springs
+	set Ks_col_2   [expr $n*6.0*$Es*$Icol_12mod/($HStoryTyp-2*$phvert234)];	# rotational stiffness of Story 2 column springs
+	set Ks_col_3   [expr $n*6.0*$Es*$Icol_12mod/($HStoryTyp-2*$phvert234)];	# rotational stiffness of Story 3 column springs
+	set Ks_beam_23 [expr $n*6.0*$Es*$Ibeam_23mod/($WBay-2*$phlat234)];		# rotational stiffness of Floor 2,3 & 4 beam springs
 	
 # set up geometric transformation of elements
 	set PDeltaTransf 1;
@@ -264,6 +322,9 @@
 	# Columns Story 2
 	element elasticBeamColumn  112  128 135 $Acol_12 $Es $Icol_12mod $PDeltaTransf;	# Pier 1
 	element elasticBeamColumn  122  228 235 $Acol_12 $Es $Icol_12mod $PDeltaTransf;	# Pier 2
+	# Columns Story 3
+	element elasticBeamColumn  113  138 145 $Acol_12 $Es $Icol_12mod $PDeltaTransf;	# Pier 1
+	element elasticBeamColumn  123  238 245 $Acol_12 $Es $Icol_12mod $PDeltaTransf;	# Pier 2
 	
 # define elastic beam elements
 	# element between plastic hinges: eleID convention = "2xy" where 2 = beam, x = Bay #, y = Floor #
@@ -277,7 +338,10 @@
 	element elasticBeamColumn  2131 1305 131  $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
 	element elasticBeamColumn  213  132  233  $Abeam_23 $Es $Ibeam_23mod $PDeltaTransf;
 	element elasticBeamColumn  2132 234  2310 $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
-	
+	# Beams Story 3
+	element elasticBeamColumn  2141 1405 141  $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
+	element elasticBeamColumn  214  142  243  $Abeam_23 $Es $Ibeam_23mod $PDeltaTransf;
+	element elasticBeamColumn  2142 244  2410 $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
 # define p-delta columns and rigid links
 	set TrussMatID 600;		# define a material ID
 	set Arigid 1000.0;		# define area of truss section (make much larger than A of frame elements)
@@ -288,11 +352,13 @@
 	# eleID convention:  6xy, 6 = truss link, x = Bay #, y = Floor #
 	element truss  622 2205 32 $Arigid $TrussMatID;	# Floor 2
 	element truss  623 2305 33 $Arigid $TrussMatID;	# Floor 3
+	element truss  624 2405 34 $Arigid $TrussMatID;	# Floor 4
 	
 	# p-delta columns
 	# eleID convention:  7xy, 7 = p-delta columns, x = Pier #, y = Story #
 	element elasticBeamColumn  731  31  326 $Arigid $Es $Irigid $PDeltaTransf;	# Story 1
 	element elasticBeamColumn  732  327 336 $Arigid $Es $Irigid $PDeltaTransf;	# Story 2
+	element elasticBeamColumn  733  337 346 $Arigid $Es $Irigid $PDeltaTransf;	# Story 3
 	
 # define elastic panel zone elements (assume rigid)
 	# elemPanelZone2D creates 8 elastic elements that form a rectangular panel zone
@@ -307,6 +373,8 @@
 	elemPanelZone2D   500221 2201 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 2
 	elemPanelZone2D   500131 1301 $Es $Apz $Ipz $PDeltaTransf;	# Pier 1, Floor 3
 	elemPanelZone2D   500231 2301 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 3
+	elemPanelZone2D   500141 1401 $Es $Apz $Ipz $PDeltaTransf;	# Pier 1, Floor 4
+	elemPanelZone2D   500241 2401 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 4
 	
 # display the model with the node numbers
 	DisplayModel2D NodeNumbers;
@@ -361,9 +429,16 @@
 	rotSpring2DModIKModel 3122 136 135 $Ks_col_2 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	rotSpring2DModIKModel 3222 236 235 $Ks_col_2 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	
+	# col springs @ bottom of Story 3 (above Floor 3)
+	rotSpring2DModIKModel 3131 137 138 $Ks_col_3 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3231 237 238 $Ks_col_3 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	#col springs @ top of Story 3 (below Floor 4)
+	rotSpring2DModIKModel 3132 146 145 $Ks_col_3 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3232 246 245 $Ks_col_3 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	
 	# create region for frame column springs
 	# command: region $regionID -ele $ele_1_ID $ele_2_ID...
-	region 1 -ele 3111 3211 3112 3212 3121 3221 3122 3222;
+	region 1 -ele 3111 3211 3112 3212 3121 3221 3122 3222 3131 3231 3132 3232;
 	
 # define beam springs
 	# Spring ID: "4xya", where 4 = beam spring, x = Bay #, y = Floor #, a = location in bay
@@ -381,9 +456,12 @@
 	#beam springs at Floor 3
 	rotSpring2DModIKModel 4131 131 132 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	rotSpring2DModIKModel 4132 233 234 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	#beam springs at Floor 4
+	rotSpring2DModIKModel 4141 141 142 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4142 243 244 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	
 	# create region for beam springs
-	region 2 -ele 4121 4122 4131 4132;
+	region 2 -ele 4121 4122 4131 4132 4141 4142;
 	
 #define panel zone springs
 	# rotPanelZone2D creates a uniaxial material spring with a trilinear response based on the Krawinkler Model
@@ -401,6 +479,9 @@
 	#3rd Floor PZ springs
 	rotPanelZone2D 41300 1303 1304 $Es $Fy $dcol_12 $bfcol_12 $tfcol_12 $twcol_12 $dbeam_23 $Ry $as_PZ;
 	rotPanelZone2D 42300 2303 2304 $Es $Fy $dcol_12 $bfcol_12 $tfcol_12 $twcol_12 $dbeam_23 $Ry $as_PZ;
+	#4th Floor PZ springs
+	rotPanelZone2D 41400 1403 1404 $Es $Fy $dcol_12 $bfcol_12 $tfcol_12 $twcol_12 $dbeam_23 $Ry $as_PZ;
+	rotPanelZone2D 42400 2403 2404 $Es $Fy $dcol_12 $bfcol_12 $tfcol_12 $twcol_12 $dbeam_23 $Ry $as_PZ;
 	
 # define p-delta column spring: zero-stiffness elastic spring	
 	#Spring ID: "5xya" where 5 = leaning column spring, x = Pier #, y = Story #, a = location in story
@@ -409,9 +490,11 @@
 	rotLeaningCol 5312 32 326;	# top of Story 1
 	rotLeaningCol 5321 32 327;	# bottom of Story 2
 	rotLeaningCol 5322 33 336;	# top of Story 2
+	rotLeaningCol 5331 33 337;	# bottom of Story 3
+	rotLeaningCol 5332 34 346;	# top of Story 3
 	
 	# create region for P-Delta column springs
-	region 3 -ele 5312 5321 5322;
+	region 3 -ele 5312 5321 5322 5331 5332;
 	
 ############################################################################
 #                       Eigenvalue Analysis                    			   
@@ -440,12 +523,16 @@
 		# command: load node Fx Fy Mz
 		set P_PD2 [expr -398.02];	# Floor 2
 		set P_PD3 [expr -391.31];	# Floor 3
+		set P_PD4 [expr -391.31];	# Floor 4
+		
 		load 32 0.0 $P_PD2 0.0;		# Floor 2
 		load 33 0.0 $P_PD3 0.0;		# Floor 3
+		load 34 0.0 $P_PD4 0.0;		# Floor 4
 		
 		# point loads on frame column nodes
 		set P_F2 [expr 0.5*(-1.0*$Floor2Weight-$P_PD2)];	# load on each frame node in Floor 2
 		set P_F3 [expr 0.5*(-1.0*$Floor3Weight-$P_PD3)];	# load on each frame node in Floor 3
+		set P_F4 [expr 0.5*(-1.0*$Floor4Weight-$P_PD4)];	# load on each frame node in Floor 4
 		
 		# Floor 2 loads
 		load 127 0.0 $P_F2 0.0;
@@ -453,6 +540,9 @@
 		# Floor 3 loads		
 		load 137 0.0 $P_F3 0.0;
 		load 237 0.0 $P_F3 0.0;
+		# Floor 4 loads		
+		load 147 0.0 $P_F4 0.0;
+		load 247 0.0 $P_F4 0.0;
 	}
 
 # Gravity-analysis: load-controlled static analysis
@@ -479,10 +569,11 @@
 	# record drifts
 	recorder Drift -file $dataDir/Drift-Story1.out -time -iNode 11 -jNode 1205 -dof 1 -perpDirn 2;
 	recorder Drift -file $dataDir/Drift-Story2.out -time -iNode 1205 -jNode 1305 -dof 1 -perpDirn 2;
-	recorder Drift -file $dataDir/Drift-Roof.out -time -iNode 11 -jNode 1305 -dof 1 -perpDirn 2;
+	recorder Drift -file $dataDir/Drift-Story3.out -time -iNode 1305 -jNode 1405 -dof 1 -perpDirn 2; #need to check??????
+	recorder Drift -file $dataDir/Drift-Roof.out -time -iNode 11 -jNode 1405 -dof 1 -perpDirn 2; #changed from 1305
 	
 # record floor displacements	
-	recorder Node -file $dataDir/Disp.out -time -node 1205 1305 -dof 1 disp;
+	recorder Node -file $dataDir/Disp.out -time -node 1205 1405 -dof 1 disp; #changed from 1305
 	
 # record base shear reactions
 	recorder Node -file $dataDir/Vbase.out -time -node 117 217 31 -dof 1 reaction;
@@ -513,13 +604,16 @@
 if {$analysisType == "pushover"} { 
 	puts "Running Pushover..."
 # assign lateral loads and create load pattern:  use ASCE 7-10 distribution
-	set lat2 16.255;	# force on each beam-column joint in Floor 2
-	set lat3 31.636;	# force on each beam-column joint in Floor 3
+	set lat2 15;	# force on each beam-column joint in Floor 2
+	set lat3 30;	# force on each beam-column joint in Floor 3
+	set lat4 40;	# force on each beam-column joint in Floor 4				
 	pattern Plain 200 Linear {			
 					load 1205 $lat2 0.0 0.0;
 					load 2205 $lat2 0.0 0.0;
 					load 1305 $lat3 0.0 0.0;
-					load 2305 $lat3 0.0 0.0;
+					load 2305 $lat3 0.0 0.0;  
+					load 1405 $lat4 0.0 0.0;
+					load 2405 $lat4 0.0 0.0;
 	}
 	
 # display deformed shape:
@@ -527,7 +621,7 @@ if {$analysisType == "pushover"} {
 	DisplayModel2D DeformedShape $ViewScale ;	# display deformed shape, the scaling factor needs to be adjusted for each model
 
 # displacement parameters
-	set IDctrlNode 1305;				# node where disp is read for disp control
+	set IDctrlNode 1405;				# node where disp is read for disp control ///////// changed to 1305 to 1405
 	set IDctrlDOF 1;					# degree of freedom read for disp control (1 = x displacement)
 	set Dmax [expr 0.1*$HBuilding];		# maximum displacement of pushover: 10% roof drift
 	set Dincr [expr 0.01];				# displacement increment
