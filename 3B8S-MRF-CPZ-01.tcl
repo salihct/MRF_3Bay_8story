@@ -412,82 +412,396 @@
 	# note: top center and btm center nodes were previously defined as xy7 and xy6, respectively, at Floor 2(center = horizonal center)
 
 	# panel zone at Pier 1, Floor 2
-	node 1201 [expr $Pier1 - $pzlat234 ] [expr $Floor2 + $phvert234];
-	node 1202 [expr $Pier1 - $pzlat234 ] [expr $Floor2 + $phvert234];
-	node 1203 [expr $Pier1 + $pzlat234 ] [expr $Floor2 + $phvert234];
-	node 1204 [expr $Pier1 + $pzlat234 ] [expr $Floor2 + $phvert234];
-	node 1205 [expr $Pier1 + $pzlat234 ] [expr $Floor2];
-	node 1206 [expr $Pier1 + $pzlat234 ] [expr $Floor2 - $phvert234];
-	node 1207 [expr $Pier1 + $pzlat234 ] [expr $Floor2 - $phvert234];
-	node 1208 [expr $Pier1 - $pzlat234 ] [expr $Floor2 - $phvert234];
-	node 1209 [expr $Pier1 - $pzlat234 ] [expr $Floor2 - $phvert234];
-	node 1210 [expr $Pier1 - $pzlat234 ] [expr $Floor2];
+	node 1201 [expr $Pier1 - $pzlat1423 ] [expr $Floor2 + $phvert23];
+	node 1202 [expr $Pier1 - $pzlat1423 ] [expr $Floor2 + $phvert23];
+	node 1203 [expr $Pier1 + $pzlat1423 ] [expr $Floor2 + $phvert23];
+	node 1204 [expr $Pier1 + $pzlat1423 ] [expr $Floor2 + $phvert23];
+	node 1205 [expr $Pier1 + $pzlat1423 ] [expr $Floor2];
+	node 1206 [expr $Pier1 + $pzlat1423 ] [expr $Floor2 - $phvert23];
+	node 1207 [expr $Pier1 + $pzlat1423 ] [expr $Floor2 - $phvert23];
+	node 1208 [expr $Pier1 - $pzlat1423 ] [expr $Floor2 - $phvert23];
+	node 1209 [expr $Pier1 - $pzlat1423 ] [expr $Floor2 - $phvert23];
+	node 1210 [expr $Pier1 - $pzlat1423 ] [expr $Floor2];
 	
 	# panel zone at Pier 2, Floor 2
-	node 2201 [expr $Pier2 - $pzlat234 ] [expr $Floor2 + $phvert234];
-	node 2202 [expr $Pier2 - $pzlat234 ] [expr $Floor2 + $phvert234];
-	node 2203 [expr $Pier2 + $pzlat234 ] [expr $Floor2 + $phvert234];
-	node 2204 [expr $Pier2 + $pzlat234 ] [expr $Floor2 + $phvert234];
-	node 2205 [expr $Pier2 + $pzlat234 ] [expr $Floor2];
-	node 2206 [expr $Pier2 + $pzlat234 ] [expr $Floor2 - $phvert234];
-	node 2207 [expr $Pier2 + $pzlat234 ] [expr $Floor2 - $phvert234];
-	node 2208 [expr $Pier2 - $pzlat234 ] [expr $Floor2 - $phvert234];
-	node 2209 [expr $Pier2 - $pzlat234 ] [expr $Floor2 - $phvert234];
-	node 2210 [expr $Pier2 - $pzlat234 ] [expr $Floor2];
+	node 2201 [expr $Pier2 - $pzlat2323 ] [expr $Floor2 + $phvert23];
+	node 2202 [expr $Pier2 - $pzlat2323 ] [expr $Floor2 + $phvert23];
+	node 2203 [expr $Pier2 + $pzlat2323 ] [expr $Floor2 + $phvert23];
+	node 2204 [expr $Pier2 + $pzlat2323 ] [expr $Floor2 + $phvert23];
+	node 2205 [expr $Pier2 + $pzlat2323 ] [expr $Floor2];
+	node 2206 [expr $Pier2 + $pzlat2323 ] [expr $Floor2 - $phvert23];
+	node 2207 [expr $Pier2 + $pzlat2323 ] [expr $Floor2 - $phvert23];
+	node 2208 [expr $Pier2 - $pzlat2323 ] [expr $Floor2 - $phvert23];
+	node 2209 [expr $Pier2 - $pzlat2323 ] [expr $Floor2 - $phvert23];
+	node 2210 [expr $Pier2 - $pzlat2323 ] [expr $Floor2];
+
+	# panel zone at Pier 3, Floor 2
+	node 3201 [expr $Pier3 - $pzlat2323 ] [expr $Floor2 + $phvert23];
+	node 3202 [expr $Pier3 - $pzlat2323 ] [expr $Floor2 + $phvert23];
+	node 3203 [expr $Pier3 + $pzlat2323 ] [expr $Floor2 + $phvert23];
+	node 3204 [expr $Pier3 + $pzlat2323 ] [expr $Floor2 + $phvert23];
+	node 3205 [expr $Pier3 + $pzlat2323 ] [expr $Floor2];
+	node 3206 [expr $Pier3 + $pzlat2323 ] [expr $Floor2 - $phvert23];
+	node 3207 [expr $Pier3 + $pzlat2323 ] [expr $Floor2 - $phvert23];
+	node 3208 [expr $Pier3 - $pzlat2323 ] [expr $Floor2 - $phvert23];
+	node 3209 [expr $Pier3 - $pzlat2323 ] [expr $Floor2 - $phvert23];
+	node 3210 [expr $Pier3 - $pzlat2323 ] [expr $Floor2];
+
+	# panel zone at Pier 4, Floor 2
+	node 4201 [expr $Pier4 - $pzlat1423 ] [expr $Floor2 + $phvert23];
+	node 4202 [expr $Pier4 - $pzlat1423 ] [expr $Floor2 + $phvert23];
+	node 4203 [expr $Pier4 + $pzlat1423 ] [expr $Floor2 + $phvert23];
+	node 4204 [expr $Pier4 + $pzlat1423 ] [expr $Floor2 + $phvert23];
+	node 4205 [expr $Pier4 + $pzlat1423 ] [expr $Floor2];
+	node 4206 [expr $Pier4 + $pzlat1423 ] [expr $Floor2 - $phvert23];
+	node 4207 [expr $Pier4 + $pzlat1423 ] [expr $Floor2 - $phvert23];
+	node 4208 [expr $Pier4 - $pzlat1423 ] [expr $Floor2 - $phvert23];
+	node 4209 [expr $Pier4 - $pzlat1423 ] [expr $Floor2 - $phvert23];
+	node 4210 [expr $Pier4 - $pzlat1423 ] [expr $Floor2];
 	
 	# panel zone at Pier 1, Floor 3
-	node 1301 [expr $Pier1 - $pzlat234 ] [expr $Floor3 + $phvert234];
-	node 1302 [expr $Pier1 - $pzlat234 ] [expr $Floor3 + $phvert234];
-	node 1303 [expr $Pier1 + $pzlat234 ] [expr $Floor3 + $phvert234];
-	node 1304 [expr $Pier1 + $pzlat234 ] [expr $Floor3 + $phvert234];
-	node 1305 [expr $Pier1 + $pzlat234 ] [expr $Floor3];
-	node 1306 [expr $Pier1 + $pzlat234 ] [expr $Floor3 - $phvert234];
-	node 1307 [expr $Pier1 + $pzlat234 ] [expr $Floor3 - $phvert234];
-	node 1308 [expr $Pier1 - $pzlat234 ] [expr $Floor3 - $phvert234];
-	node 1309 [expr $Pier1 - $pzlat234 ] [expr $Floor3 - $phvert234];
-	node 1310 [expr $Pier1 - $pzlat234 ] [expr $Floor3];
+	node 1301 [expr $Pier1 - $pzlat1423 ] [expr $Floor3 + $phvert23];
+	node 1302 [expr $Pier1 - $pzlat1423 ] [expr $Floor3 + $phvert23];
+	node 1303 [expr $Pier1 + $pzlat1423 ] [expr $Floor3 + $phvert23];
+	node 1304 [expr $Pier1 + $pzlat1423 ] [expr $Floor3 + $phvert23];
+	node 1305 [expr $Pier1 + $pzlat1423 ] [expr $Floor3];
+	node 1306 [expr $Pier1 + $pzlat1423 ] [expr $Floor3 - $phvert23];
+	node 1307 [expr $Pier1 + $pzlat1423 ] [expr $Floor3 - $phvert23];
+	node 1308 [expr $Pier1 - $pzlat1423 ] [expr $Floor3 - $phvert23];
+	node 1309 [expr $Pier1 - $pzlat1423 ] [expr $Floor3 - $phvert23];
+	node 1310 [expr $Pier1 - $pzlat1423 ] [expr $Floor3];
 	
 	# panel zone at Pier 2, Floor 3
-	node 2301 [expr $Pier2 - $pzlat234 ] [expr $Floor3 + $phvert234];
-	node 2302 [expr $Pier2 - $pzlat234 ] [expr $Floor3 + $phvert234];
-	node 2303 [expr $Pier2 + $pzlat234 ] [expr $Floor3 + $phvert234];
-	node 2304 [expr $Pier2 + $pzlat234 ] [expr $Floor3 + $phvert234];
-	node 2305 [expr $Pier2 + $pzlat234 ] [expr $Floor3];
-	node 2306 [expr $Pier2 + $pzlat234 ] [expr $Floor3 - $phvert234];
-	node 2307 [expr $Pier2 + $pzlat234 ] [expr $Floor3 - $phvert234];
-	node 2308 [expr $Pier2 - $pzlat234 ] [expr $Floor3 - $phvert234];
-	node 2309 [expr $Pier2 - $pzlat234 ] [expr $Floor3 - $phvert234];
-	node 2310 [expr $Pier2 - $pzlat234 ] [expr $Floor3];
+	node 2301 [expr $Pier2 - $pzlat2323 ] [expr $Floor3 + $phvert23];
+	node 2302 [expr $Pier2 - $pzlat2323 ] [expr $Floor3 + $phvert23];
+	node 2303 [expr $Pier2 + $pzlat2323 ] [expr $Floor3 + $phvert23];
+	node 2304 [expr $Pier2 + $pzlat2323 ] [expr $Floor3 + $phvert23];
+	node 2305 [expr $Pier2 + $pzlat2323 ] [expr $Floor3];
+	node 2306 [expr $Pier2 + $pzlat2323 ] [expr $Floor3 - $phvert23];
+	node 2307 [expr $Pier2 + $pzlat2323 ] [expr $Floor3 - $phvert23];
+	node 2308 [expr $Pier2 - $pzlat2323 ] [expr $Floor3 - $phvert23];
+	node 2309 [expr $Pier2 - $pzlat2323 ] [expr $Floor3 - $phvert23];
+	node 2310 [expr $Pier2 - $pzlat2323 ] [expr $Floor3];
+
+	# panel zone at Pier 3, Floor 3
+	node 3301 [expr $Pier3 - $pzlat2323 ] [expr $Floor3 + $phvert23];
+	node 3302 [expr $Pier3 - $pzlat2323 ] [expr $Floor3 + $phvert23];
+	node 3303 [expr $Pier3 + $pzlat2323 ] [expr $Floor3 + $phvert23];
+	node 3304 [expr $Pier3 + $pzlat2323 ] [expr $Floor3 + $phvert23];
+	node 3305 [expr $Pier3 + $pzlat2323 ] [expr $Floor3];
+	node 3306 [expr $Pier3 + $pzlat2323 ] [expr $Floor3 - $phvert23];
+	node 3307 [expr $Pier3 + $pzlat2323 ] [expr $Floor3 - $phvert23];
+	node 3308 [expr $Pier3 - $pzlat2323 ] [expr $Floor3 - $phvert23];
+	node 3309 [expr $Pier3 - $pzlat2323 ] [expr $Floor3 - $phvert23];
+	node 3310 [expr $Pier3 - $pzlat2323 ] [expr $Floor3];
+
+	# panel zone at Pier 4, Floor 3
+	node 4301 [expr $Pier4 - $pzlat1423 ] [expr $Floor3 + $phvert23];
+	node 4302 [expr $Pier4 - $pzlat1423 ] [expr $Floor3 + $phvert23];
+	node 4303 [expr $Pier4 + $pzlat1423 ] [expr $Floor3 + $phvert23];
+	node 4304 [expr $Pier4 + $pzlat1423 ] [expr $Floor3 + $phvert23];
+	node 4305 [expr $Pier4 + $pzlat1423 ] [expr $Floor3];
+	node 4306 [expr $Pier4 + $pzlat1423 ] [expr $Floor3 - $phvert23];
+	node 4307 [expr $Pier4 + $pzlat1423 ] [expr $Floor3 - $phvert23];
+	node 4308 [expr $Pier4 - $pzlat1423 ] [expr $Floor3 - $phvert23];
+	node 4309 [expr $Pier4 - $pzlat1423 ] [expr $Floor3 - $phvert23];
+	node 4310 [expr $Pier4 - $pzlat1423 ] [expr $Floor3];
 	
 	# panel zone at Pier 1, Floor 4
-	node 1401 [expr $Pier1 - $pzlat234 ] [expr $Floor4 + $phvert234];
-	node 1402 [expr $Pier1 - $pzlat234 ] [expr $Floor4 + $phvert234];
-	node 1403 [expr $Pier1 + $pzlat234 ] [expr $Floor4 + $phvert234];
-	node 1404 [expr $Pier1 + $pzlat234 ] [expr $Floor4 + $phvert234];
-	node 1405 [expr $Pier1 + $pzlat234 ] [expr $Floor4];
-	node 1406 [expr $Pier1 + $pzlat234 ] [expr $Floor4 - $phvert234];
-	node 1407 [expr $Pier1 + $pzlat234 ] [expr $Floor4 - $phvert234];
-	node 1408 [expr $Pier1 - $pzlat234 ] [expr $Floor4 - $phvert234];
-	node 1409 [expr $Pier1 - $pzlat234 ] [expr $Floor4 - $phvert234];
-	node 1410 [expr $Pier1 - $pzlat234 ] [expr $Floor4];
-	node 147  [expr $Pier1]  [expr $Floor4 + $phvert234]; # not previously defined since no column above
+	node 1401 [expr $Pier1 - $pzlat1445 ] [expr $Floor4 + $phvert45];
+	node 1402 [expr $Pier1 - $pzlat1445 ] [expr $Floor4 + $phvert45];
+	node 1403 [expr $Pier1 + $pzlat1445 ] [expr $Floor4 + $phvert45];
+	node 1404 [expr $Pier1 + $pzlat1445 ] [expr $Floor4 + $phvert45];
+	node 1405 [expr $Pier1 + $pzlat1445 ] [expr $Floor4];
+	node 1406 [expr $Pier1 + $pzlat1445 ] [expr $Floor4 - $phvert45];
+	node 1407 [expr $Pier1 + $pzlat1445 ] [expr $Floor4 - $phvert45];
+	node 1408 [expr $Pier1 - $pzlat1445 ] [expr $Floor4 - $phvert45];
+	node 1409 [expr $Pier1 - $pzlat1445 ] [expr $Floor4 - $phvert45];
+	node 1410 [expr $Pier1 - $pzlat1445 ] [expr $Floor4];
 	
 	# panel zone at Pier 2, Floor 4
-	node 2401 [expr $Pier2 - $pzlat234 ] [expr $Floor4 + $phvert234];
-	node 2402 [expr $Pier2 - $pzlat234 ] [expr $Floor4 + $phvert234];
-	node 2403 [expr $Pier2 + $pzlat234 ] [expr $Floor4 + $phvert234];
-	node 2404 [expr $Pier2 + $pzlat234 ] [expr $Floor4 + $phvert234];
-	node 2405 [expr $Pier2 + $pzlat234 ] [expr $Floor4];
-	node 2406 [expr $Pier2 + $pzlat234 ] [expr $Floor4 - $phvert234];
-	node 2407 [expr $Pier2 + $pzlat234 ] [expr $Floor4 - $phvert234];
-	node 2408 [expr $Pier2 - $pzlat234 ] [expr $Floor4 - $phvert234];
-	node 2409 [expr $Pier2 - $pzlat234 ] [expr $Floor4 - $phvert234];
-	node 2410 [expr $Pier2 - $pzlat234 ] [expr $Floor4];
-	node 247  [expr $Pier2]  [expr $Floor4 + $phvert234]; # not previously defined since no column above
+	node 2401 [expr $Pier2 - $pzlat2345 ] [expr $Floor4 + $phvert45];
+	node 2402 [expr $Pier2 - $pzlat2345 ] [expr $Floor4 + $phvert45];
+	node 2403 [expr $Pier2 + $pzlat2345 ] [expr $Floor4 + $phvert45];
+	node 2404 [expr $Pier2 + $pzlat2345 ] [expr $Floor4 + $phvert45];
+	node 2405 [expr $Pier2 + $pzlat2345 ] [expr $Floor4];
+	node 2406 [expr $Pier2 + $pzlat2345 ] [expr $Floor4 - $phvert45];
+	node 2407 [expr $Pier2 + $pzlat2345 ] [expr $Floor4 - $phvert45];
+	node 2408 [expr $Pier2 - $pzlat2345 ] [expr $Floor4 - $phvert45];
+	node 2409 [expr $Pier2 - $pzlat2345 ] [expr $Floor4 - $phvert45];
+	node 2410 [expr $Pier2 - $pzlat2345 ] [expr $Floor4];
+
+	# panel zone at Pier 3, Floor 4
+	node 3401 [expr $Pier3 - $pzlat2345 ] [expr $Floor4 + $phvert45];
+	node 3402 [expr $Pier3 - $pzlat2345 ] [expr $Floor4 + $phvert45];
+	node 3403 [expr $Pier3 + $pzlat2345 ] [expr $Floor4 + $phvert45];
+	node 3404 [expr $Pier3 + $pzlat2345 ] [expr $Floor4 + $phvert45];
+	node 3405 [expr $Pier3 + $pzlat2345 ] [expr $Floor4];
+	node 3406 [expr $Pier3 + $pzlat2345 ] [expr $Floor4 - $phvert45];
+	node 3407 [expr $Pier3 + $pzlat2345 ] [expr $Floor4 - $phvert45];
+	node 3408 [expr $Pier3 - $pzlat2345 ] [expr $Floor4 - $phvert45];
+	node 3409 [expr $Pier3 - $pzlat2345 ] [expr $Floor4 - $phvert45];
+	node 3410 [expr $Pier3 - $pzlat2345 ] [expr $Floor4];
+
+	# panel zone at Pier 4, Floor 4
+	node 4401 [expr $Pier4 - $pzlat1445 ] [expr $Floor4 + $phvert45];
+	node 4402 [expr $Pier4 - $pzlat1445 ] [expr $Floor4 + $phvert45];
+	node 4403 [expr $Pier4 + $pzlat1445 ] [expr $Floor4 + $phvert45];
+	node 4404 [expr $Pier4 + $pzlat1445 ] [expr $Floor4 + $phvert45];
+	node 4405 [expr $Pier4 + $pzlat1445 ] [expr $Floor4];
+	node 4406 [expr $Pier4 + $pzlat1445 ] [expr $Floor4 - $phvert45];
+	node 4407 [expr $Pier4 + $pzlat1445 ] [expr $Floor4 - $phvert45];
+	node 4408 [expr $Pier4 - $pzlat1445 ] [expr $Floor4 - $phvert45];
+	node 4409 [expr $Pier4 - $pzlat1445 ] [expr $Floor4 - $phvert45];
+	node 4410 [expr $Pier4 - $pzlat1445 ] [expr $Floor4];
+
+	# panel zone at Pier 1, Floor 5
+	node 1501 [expr $Pier1 - $pzlat1445 ] [expr $Floor5 + $phvert45];
+	node 1502 [expr $Pier1 - $pzlat1445 ] [expr $Floor5 + $phvert45];
+	node 1503 [expr $Pier1 + $pzlat1445 ] [expr $Floor5 + $phvert45];
+	node 1504 [expr $Pier1 + $pzlat1445 ] [expr $Floor5 + $phvert45];
+	node 1505 [expr $Pier1 + $pzlat1445 ] [expr $Floor5];
+	node 1506 [expr $Pier1 + $pzlat1445 ] [expr $Floor5 - $phvert45];
+	node 1507 [expr $Pier1 + $pzlat1445 ] [expr $Floor5 - $phvert45];
+	node 1508 [expr $Pier1 - $pzlat1445 ] [expr $Floor5 - $phvert45];
+	node 1509 [expr $Pier1 - $pzlat1445 ] [expr $Floor5 - $phvert45];
+	node 1510 [expr $Pier1 - $pzlat1445 ] [expr $Floor5];
+	
+	# panel zone at Pier 2, Floor 5
+	node 2501 [expr $Pier2 - $pzlat2345 ] [expr $Floor5 + $phvert45];
+	node 2502 [expr $Pier2 - $pzlat2345 ] [expr $Floor5 + $phvert45];
+	node 2503 [expr $Pier2 + $pzlat2345 ] [expr $Floor5 + $phvert45];
+	node 2504 [expr $Pier2 + $pzlat2345 ] [expr $Floor5 + $phvert45];
+	node 2505 [expr $Pier2 + $pzlat2345 ] [expr $Floor5];
+	node 2506 [expr $Pier2 + $pzlat2345 ] [expr $Floor5 - $phvert45];
+	node 2507 [expr $Pier2 + $pzlat2345 ] [expr $Floor5 - $phvert45];
+	node 2508 [expr $Pier2 - $pzlat2345 ] [expr $Floor5 - $phvert45];
+	node 2509 [expr $Pier2 - $pzlat2345 ] [expr $Floor5 - $phvert45];
+	node 2510 [expr $Pier2 - $pzlat2345 ] [expr $Floor5];
+
+	# panel zone at Pier 3, Floor 5
+	node 3501 [expr $Pier3 - $pzlat2345 ] [expr $Floor5 + $phvert45];
+	node 3502 [expr $Pier3 - $pzlat2345 ] [expr $Floor5 + $phvert45];
+	node 3503 [expr $Pier3 + $pzlat2345 ] [expr $Floor5 + $phvert45];
+	node 3504 [expr $Pier3 + $pzlat2345 ] [expr $Floor5 + $phvert45];
+	node 3505 [expr $Pier3 + $pzlat2345 ] [expr $Floor5];
+	node 3506 [expr $Pier3 + $pzlat2345 ] [expr $Floor5 - $phvert45];
+	node 3507 [expr $Pier3 + $pzlat2345 ] [expr $Floor5 - $phvert45];
+	node 3508 [expr $Pier3 - $pzlat2345 ] [expr $Floor5 - $phvert45];
+	node 3509 [expr $Pier3 - $pzlat2345 ] [expr $Floor5 - $phvert45];
+	node 3510 [expr $Pier3 - $pzlat2345 ] [expr $Floor5];
+
+	# panel zone at Pier 4, Floor 6
+	node 4501 [expr $Pier4 - $pzlat1445 ] [expr $Floor5 + $phvert45];
+	node 4502 [expr $Pier4 - $pzlat1445 ] [expr $Floor5 + $phvert45];
+	node 4503 [expr $Pier4 + $pzlat1445 ] [expr $Floor5 + $phvert45];
+	node 4504 [expr $Pier4 + $pzlat1445 ] [expr $Floor5 + $phvert45];
+	node 4505 [expr $Pier4 + $pzlat1445 ] [expr $Floor5];
+	node 4506 [expr $Pier4 + $pzlat1445 ] [expr $Floor5 - $phvert45];
+	node 4507 [expr $Pier4 + $pzlat1445 ] [expr $Floor5 - $phvert45];
+	node 4508 [expr $Pier4 - $pzlat1445 ] [expr $Floor5 - $phvert45];
+	node 4509 [expr $Pier4 - $pzlat1445 ] [expr $Floor5 - $phvert45];
+	node 4510 [expr $Pier4 - $pzlat1445 ] [expr $Floor5];
+
+	# panel zone at Pier 1, Floor 6
+	node 1601 [expr $Pier1 - $pzlat1467 ] [expr $Floor6 + $phvert67];
+	node 1602 [expr $Pier1 - $pzlat1467 ] [expr $Floor6 + $phvert67];
+	node 1603 [expr $Pier1 + $pzlat1467 ] [expr $Floor6 + $phvert67];
+	node 1604 [expr $Pier1 + $pzlat1467 ] [expr $Floor6 + $phvert67];
+	node 1605 [expr $Pier1 + $pzlat1467 ] [expr $Floor6];
+	node 1606 [expr $Pier1 + $pzlat1467 ] [expr $Floor6 - $phvert67];
+	node 1607 [expr $Pier1 + $pzlat1467 ] [expr $Floor6 - $phvert67];
+	node 1608 [expr $Pier1 - $pzlat1467 ] [expr $Floor6 - $phvert67];
+	node 1609 [expr $Pier1 - $pzlat1467 ] [expr $Floor6 - $phvert67];
+	node 1610 [expr $Pier1 - $pzlat1467 ] [expr $Floor6];
+	
+	# panel zone at Pier 2, Floor 6
+	node 2601 [expr $Pier2 - $pzlat2367 ] [expr $Floor6 + $phvert67];
+	node 2602 [expr $Pier2 - $pzlat2367 ] [expr $Floor6 + $phvert67];
+	node 2603 [expr $Pier2 + $pzlat2367 ] [expr $Floor6 + $phvert67];
+	node 2604 [expr $Pier2 + $pzlat2367 ] [expr $Floor6 + $phvert67];
+	node 2605 [expr $Pier2 + $pzlat2367 ] [expr $Floor6];
+	node 2606 [expr $Pier2 + $pzlat2367 ] [expr $Floor6 - $phvert67];
+	node 2607 [expr $Pier2 + $pzlat2367 ] [expr $Floor6 - $phvert67];
+	node 2608 [expr $Pier2 - $pzlat2367 ] [expr $Floor6 - $phvert67];
+	node 2609 [expr $Pier2 - $pzlat2367 ] [expr $Floor6 - $phvert67];
+	node 2610 [expr $Pier2 - $pzlat2367 ] [expr $Floor6];
+
+	# panel zone at Pier 3, Floor 6
+	node 3601 [expr $Pier3 - $pzlat2367 ] [expr $Floor6 + $phvert67];
+	node 3602 [expr $Pier3 - $pzlat2367 ] [expr $Floor6 + $phvert67];
+	node 3603 [expr $Pier3 + $pzlat2367 ] [expr $Floor6 + $phvert67];
+	node 3604 [expr $Pier3 + $pzlat2367 ] [expr $Floor6 + $phvert67];
+	node 3605 [expr $Pier3 + $pzlat2367 ] [expr $Floor6];
+	node 3606 [expr $Pier3 + $pzlat2367 ] [expr $Floor6 - $phvert67];
+	node 3607 [expr $Pier3 + $pzlat2367 ] [expr $Floor6 - $phvert67];
+	node 3608 [expr $Pier3 - $pzlat2367 ] [expr $Floor6 - $phvert67];
+	node 3609 [expr $Pier3 - $pzlat2367 ] [expr $Floor6 - $phvert67];
+	node 3610 [expr $Pier3 - $pzlat2367 ] [expr $Floor6];
+
+	# panel zone at Pier 4, Floor 6
+	node 4601 [expr $Pier4 - $pzlat1467 ] [expr $Floor6 + $phvert67];
+	node 4602 [expr $Pier4 - $pzlat1467 ] [expr $Floor6 + $phvert67];
+	node 4603 [expr $Pier4 + $pzlat1467 ] [expr $Floor6 + $phvert67];
+	node 4604 [expr $Pier4 + $pzlat1467 ] [expr $Floor6 + $phvert67];
+	node 4605 [expr $Pier4 + $pzlat1467 ] [expr $Floor6];
+	node 4606 [expr $Pier4 + $pzlat1467 ] [expr $Floor6 - $phvert67];
+	node 4607 [expr $Pier4 + $pzlat1467 ] [expr $Floor6 - $phvert67];
+	node 4608 [expr $Pier4 - $pzlat1467 ] [expr $Floor6 - $phvert67];
+	node 4609 [expr $Pier4 - $pzlat1467 ] [expr $Floor6 - $phvert67];
+	node 4610 [expr $Pier4 - $pzlat1467 ] [expr $Floor6];
+
+	# panel zone at Pier 1, Floor 7
+	node 1701 [expr $Pier1 - $pzlat1467 ] [expr $Floor7 + $phvert67];
+	node 1702 [expr $Pier1 - $pzlat1467 ] [expr $Floor7 + $phvert67];
+	node 1703 [expr $Pier1 + $pzlat1467 ] [expr $Floor7 + $phvert67];
+	node 1704 [expr $Pier1 + $pzlat1467 ] [expr $Floor7 + $phvert67];
+	node 1705 [expr $Pier1 + $pzlat1467 ] [expr $Floor7];
+	node 1706 [expr $Pier1 + $pzlat1467 ] [expr $Floor7 - $phvert67];
+	node 1707 [expr $Pier1 + $pzlat1467 ] [expr $Floor7 - $phvert67];
+	node 1708 [expr $Pier1 - $pzlat1467 ] [expr $Floor7 - $phvert67];
+	node 1709 [expr $Pier1 - $pzlat1467 ] [expr $Floor7 - $phvert67];
+	node 1710 [expr $Pier1 - $pzlat1467 ] [expr $Floor7];
+	
+	# panel zone at Pier 2, Floor 7
+	node 2701 [expr $Pier2 - $pzlat2367 ] [expr $Floor7 + $phvert67];
+	node 2702 [expr $Pier2 - $pzlat2367 ] [expr $Floor7 + $phvert67];
+	node 2703 [expr $Pier2 + $pzlat2367 ] [expr $Floor7 + $phvert67];
+	node 2704 [expr $Pier2 + $pzlat2367 ] [expr $Floor7 + $phvert67];
+	node 2705 [expr $Pier2 + $pzlat2367 ] [expr $Floor7];
+	node 2706 [expr $Pier2 + $pzlat2367 ] [expr $Floor7 - $phvert67];
+	node 2707 [expr $Pier2 + $pzlat2367 ] [expr $Floor7 - $phvert67];
+	node 2708 [expr $Pier2 - $pzlat2367 ] [expr $Floor7 - $phvert67];
+	node 2709 [expr $Pier2 - $pzlat2367 ] [expr $Floor7 - $phvert67];
+	node 2710 [expr $Pier2 - $pzlat2367 ] [expr $Floor7];
+
+	# panel zone at Pier 3, Floor 7
+	node 3701 [expr $Pier3 - $pzlat2367 ] [expr $Floor7 + $phvert67];
+	node 3702 [expr $Pier3 - $pzlat2367 ] [expr $Floor7 + $phvert67];
+	node 3703 [expr $Pier3 + $pzlat2367 ] [expr $Floor7 + $phvert67];
+	node 3704 [expr $Pier3 + $pzlat2367 ] [expr $Floor7 + $phvert67];
+	node 3705 [expr $Pier3 + $pzlat2367 ] [expr $Floor7];
+	node 3706 [expr $Pier3 + $pzlat2367 ] [expr $Floor7 - $phvert67];
+	node 3707 [expr $Pier3 + $pzlat2367 ] [expr $Floor7 - $phvert67];
+	node 3708 [expr $Pier3 - $pzlat2367 ] [expr $Floor7 - $phvert67];
+	node 3709 [expr $Pier3 - $pzlat2367 ] [expr $Floor7 - $phvert67];
+	node 3710 [expr $Pier3 - $pzlat2367 ] [expr $Floor7];
+
+	# panel zone at Pier 4, Floor 7
+	node 4701 [expr $Pier4 - $pzlat1467 ] [expr $Floor7 + $phvert67];
+	node 4702 [expr $Pier4 - $pzlat1467 ] [expr $Floor7 + $phvert67];
+	node 4703 [expr $Pier4 + $pzlat1467 ] [expr $Floor7 + $phvert67];
+	node 4704 [expr $Pier4 + $pzlat1467 ] [expr $Floor7 + $phvert67];
+	node 4705 [expr $Pier4 + $pzlat1467 ] [expr $Floor7];
+	node 4706 [expr $Pier4 + $pzlat1467 ] [expr $Floor7 - $phvert67];
+	node 4707 [expr $Pier4 + $pzlat1467 ] [expr $Floor7 - $phvert67];
+	node 4708 [expr $Pier4 - $pzlat1467 ] [expr $Floor7 - $phvert67];
+	node 4709 [expr $Pier4 - $pzlat1467 ] [expr $Floor7 - $phvert67];
+	node 4710 [expr $Pier4 - $pzlat1467 ] [expr $Floor7];
+
+	# panel zone at Pier 1, Floor 8
+	node 1801 [expr $Pier1 - $pzlat1489 ] [expr $Floor8 + $phvert89];
+	node 1802 [expr $Pier1 - $pzlat1489 ] [expr $Floor8 + $phvert89];
+	node 1803 [expr $Pier1 + $pzlat1489 ] [expr $Floor8 + $phvert89];
+	node 1804 [expr $Pier1 + $pzlat1489 ] [expr $Floor8 + $phvert89];
+	node 1805 [expr $Pier1 + $pzlat1489 ] [expr $Floor8];
+	node 1806 [expr $Pier1 + $pzlat1489 ] [expr $Floor8 - $phvert89];
+	node 1807 [expr $Pier1 + $pzlat1489 ] [expr $Floor8 - $phvert89];
+	node 1808 [expr $Pier1 - $pzlat1489 ] [expr $Floor8 - $phvert89];
+	node 1809 [expr $Pier1 - $pzlat1489 ] [expr $Floor8 - $phvert89];
+	node 1810 [expr $Pier1 - $pzlat1489 ] [expr $Floor8];
+	
+	# panel zone at Pier 2, Floor 8
+	node 2801 [expr $Pier2 - $pzlat2389 ] [expr $Floor8 + $phvert89];
+	node 2802 [expr $Pier2 - $pzlat2389 ] [expr $Floor8 + $phvert89];
+	node 2803 [expr $Pier2 + $pzlat2389 ] [expr $Floor8 + $phvert89];
+	node 2804 [expr $Pier2 + $pzlat2389 ] [expr $Floor8 + $phvert89];
+	node 2805 [expr $Pier2 + $pzlat2389 ] [expr $Floor8];
+	node 2806 [expr $Pier2 + $pzlat2389 ] [expr $Floor8 - $phvert89];
+	node 2807 [expr $Pier2 + $pzlat2389 ] [expr $Floor8 - $phvert89];
+	node 2808 [expr $Pier2 - $pzlat2389 ] [expr $Floor8 - $phvert89];
+	node 2809 [expr $Pier2 - $pzlat2389 ] [expr $Floor8 - $phvert89];
+	node 2810 [expr $Pier2 - $pzlat2389 ] [expr $Floor8];
+
+	# panel zone at Pier 3, Floor 8
+	node 3801 [expr $Pier3 - $pzlat2389 ] [expr $Floor8 + $phvert89];
+	node 3802 [expr $Pier3 - $pzlat2389 ] [expr $Floor8 + $phvert89];
+	node 3803 [expr $Pier3 + $pzlat2389 ] [expr $Floor8 + $phvert89];
+	node 3804 [expr $Pier3 + $pzlat2389 ] [expr $Floor8 + $phvert89];
+	node 3805 [expr $Pier3 + $pzlat2389 ] [expr $Floor8];
+	node 3806 [expr $Pier3 + $pzlat2389 ] [expr $Floor8 - $phvert89];
+	node 3807 [expr $Pier3 + $pzlat2389 ] [expr $Floor8 - $phvert89];
+	node 3808 [expr $Pier3 - $pzlat2389 ] [expr $Floor8 - $phvert89];
+	node 3809 [expr $Pier3 - $pzlat2389 ] [expr $Floor8 - $phvert89];
+	node 3810 [expr $Pier3 - $pzlat2389 ] [expr $Floor8];
+
+	# panel zone at Pier 4, Floor 8
+	node 4801 [expr $Pier4 - $pzlat1489 ] [expr $Floor8 + $phvert89];
+	node 4802 [expr $Pier4 - $pzlat1489 ] [expr $Floor8 + $phvert89];
+	node 4803 [expr $Pier4 + $pzlat1489 ] [expr $Floor8 + $phvert89];
+	node 4804 [expr $Pier4 + $pzlat1489 ] [expr $Floor8 + $phvert89];
+	node 4805 [expr $Pier4 + $pzlat1489 ] [expr $Floor8];
+	node 4806 [expr $Pier4 + $pzlat1489 ] [expr $Floor8 - $phvert89];
+	node 4807 [expr $Pier4 + $pzlat1489 ] [expr $Floor8 - $phvert89];
+	node 4808 [expr $Pier4 - $pzlat1489 ] [expr $Floor8 - $phvert89];
+	node 4809 [expr $Pier4 - $pzlat1489 ] [expr $Floor8 - $phvert89];
+	node 4810 [expr $Pier4 - $pzlat1489 ] [expr $Floor8];
+
+	# panel zone at Pier 1, Floor 9
+	node 1901 [expr $Pier1 - $pzlat1489 ] [expr $Floor9 + $phvert89];
+	node 1902 [expr $Pier1 - $pzlat1489 ] [expr $Floor9 + $phvert89];
+	node 1903 [expr $Pier1 + $pzlat1489 ] [expr $Floor9 + $phvert89];
+	node 1904 [expr $Pier1 + $pzlat1489 ] [expr $Floor9 + $phvert89];
+	node 1905 [expr $Pier1 + $pzlat1489 ] [expr $Floor9];
+	node 1906 [expr $Pier1 + $pzlat1489 ] [expr $Floor9 - $phvert89];
+	node 1907 [expr $Pier1 + $pzlat1489 ] [expr $Floor9 - $phvert89];
+	node 1908 [expr $Pier1 - $pzlat1489 ] [expr $Floor9 - $phvert89];
+	node 1909 [expr $Pier1 - $pzlat1489 ] [expr $Floor9 - $phvert89];
+	node 1910 [expr $Pier1 - $pzlat1489 ] [expr $Floor9];
+	node 197  [expr $Pier1]  [expr $Floor9 + $phvert89; # not previously defined since no column above
+	
+	# panel zone at Pier 2, Floor 9
+	node 2901 [expr $Pier2 - $pzlat2389 ] [expr $Floor9 + $phvert89];
+	node 2902 [expr $Pier2 - $pzlat2389 ] [expr $Floor9 + $phvert89];
+	node 2903 [expr $Pier2 + $pzlat2389 ] [expr $Floor9 + $phvert89];
+	node 2904 [expr $Pier2 + $pzlat2389 ] [expr $Floor9 + $phvert89];
+	node 2905 [expr $Pier2 + $pzlat2389 ] [expr $Floor9];
+	node 2906 [expr $Pier2 + $pzlat2389 ] [expr $Floor9 - $phvert89];
+	node 2907 [expr $Pier2 + $pzlat2389 ] [expr $Floor9 - $phvert89];
+	node 2908 [expr $Pier2 - $pzlat2389 ] [expr $Floor9 - $phvert89];
+	node 2909 [expr $Pier2 - $pzlat2389 ] [expr $Floor9 - $phvert89];
+	node 2910 [expr $Pier2 - $pzlat2389 ] [expr $Floor9];
+	node 297  [expr $Pier2]  [expr $Floor9 + $phvert89; # not previously defined since no column above
+
+	# panel zone at Pier 3, Floor 9
+	node 3901 [expr $Pier3 - $pzlat2389 ] [expr $Floor9 + $phvert89];
+	node 3902 [expr $Pier3 - $pzlat2389 ] [expr $Floor9 + $phvert89];
+	node 3903 [expr $Pier3 + $pzlat2389 ] [expr $Floor9 + $phvert89];
+	node 3904 [expr $Pier3 + $pzlat2389 ] [expr $Floor9 + $phvert89];
+	node 3905 [expr $Pier3 + $pzlat2389 ] [expr $Floor9];
+	node 3906 [expr $Pier3 + $pzlat2389 ] [expr $Floor9 - $phvert89];
+	node 3907 [expr $Pier3 + $pzlat2389 ] [expr $Floor9 - $phvert89];
+	node 3908 [expr $Pier3 - $pzlat2389 ] [expr $Floor9 - $phvert89];
+	node 3909 [expr $Pier3 - $pzlat2389 ] [expr $Floor9 - $phvert89];
+	node 3910 [expr $Pier3 - $pzlat2389 ] [expr $Floor9];
+	node 397  [expr $Pier3]  [expr $Floor9 + $phvert89; # not previously defined since no column above
+
+	# panel zone at Pier 4, Floor 9
+	node 4901 [expr $Pier4 - $pzlat1489 ] [expr $Floor9 + $phvert89];
+	node 4902 [expr $Pier4 - $pzlat1489 ] [expr $Floor9 + $phvert89];
+	node 4903 [expr $Pier4 + $pzlat1489 ] [expr $Floor9 + $phvert89];
+	node 4904 [expr $Pier4 + $pzlat1489 ] [expr $Floor9 + $phvert89];
+	node 4905 [expr $Pier4 + $pzlat1489 ] [expr $Floor9];
+	node 4906 [expr $Pier4 + $pzlat1489 ] [expr $Floor9 - $phvert89];
+	node 4907 [expr $Pier4 + $pzlat1489 ] [expr $Floor9 - $phvert89];
+	node 4908 [expr $Pier4 - $pzlat1489 ] [expr $Floor9 - $phvert89];
+	node 4909 [expr $Pier4 - $pzlat1489 ] [expr $Floor9 - $phvert89];
+	node 4910 [expr $Pier4 - $pzlat1489 ] [expr $Floor9];
+	node 497  [expr $Pier4]  [expr $Floor9 + $phvert89; # not previously defined since no column above
 	
 # define nodal masses:  lump at beam-column joints in frame
-	# command: mass $nodeID $dof1mass $dof2mass $dof3mass
-	mass 1205 $NodalMass2 $Negligible $Negligible;	# Pier 1, Floor 2
+	# command: mass $nodeID5$dof1mass $dof2mass $dof3mass
+	mass 1205 $N5dalMass2 $Negligible $Negligible;	# Pier 1, Floor 2
 	mass 2205 $NodalMass2 $Negligible $Negligible;	# Pier 2, Floor 2
 	mass 1305 $NodalMass3 $Negligible $Negligible;	# Pier 1, Floor 3
 	mass 2305 $NodalMass3 $Negligible $Negligible;	# Pier 2, Floor 3
