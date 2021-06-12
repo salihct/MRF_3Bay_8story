@@ -124,9 +124,16 @@
 	node 11 $Pier1 $Floor1;
 	node 21 $Pier2 $Floor1;
 	node 31 $Pier3 $Floor1;
-	node 32 $Pier3 $Floor2;
-	node 33 $Pier3 $Floor3;
-	node 34 $Pier3 $Floor4;
+	node 41 $Pier4 $Floor1;
+	node 51 $Pier5 $Floor1;
+	node 52 $Pier5 $Floor2;
+	node 53 $Pier5 $Floor3;
+	node 54 $Pier5 $Floor4;
+	node 55 $Pier5 $Floor5;
+	node 56 $Pier5 $Floor6;
+	node 57 $Pier5 $Floor7;
+	node 58 $Pier5 $Floor8;
+	node 59 $Pier5 $Floor9;
 	
 
 # define extra nodes for plastic hinge rotational springs
