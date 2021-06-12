@@ -235,6 +235,66 @@
 	node 465 $Pier4 [expr $Floor6 - $phvert67];
 	node 466 $Pier4 [expr $Floor6 - $phvert67];
 	node 566 $Pier5 $Floor6;	# zero-stiffness spring will be used on p-delta column
+	# column hinges at bottom of Story 6
+	node 167 $Pier1 [expr $Floor6 - $phvert67];
+	node 168 $Pier1 [expr $Floor6 - $phvert67];
+	node 267 $Pier2 [expr $Floor6 - $phvert67];
+	node 268 $Pier2 [expr $Floor6 - $phvert67];
+	node 367 $Pier3 [expr $Floor6 - $phvert67];
+	node 368 $Pier3 [expr $Floor6 - $phvert67];
+	node 467 $Pier4 [expr $Floor6 - $phvert67];
+	node 468 $Pier4 [expr $Floor6 - $phvert67];
+	node 567 $Pier5 $Floor6;	# zero-stiffness spring will be used on p-delta column
+	# column hinges at top of Story 6
+	node 175 $Pier1 [expr $Floor7 - $phvert67];
+	node 176 $Pier1 [expr $Floor7 - $phvert67];
+	node 275 $Pier2 [expr $Floor7 - $phvert67];
+	node 276 $Pier2 [expr $Floor7 - $phvert67];
+	node 375 $Pier3 [expr $Floor7 - $phvert67];
+	node 376 $Pier3 [expr $Floor7 - $phvert67];
+	node 475 $Pier4 [expr $Floor7 - $phvert67];
+	node 476 $Pier4 [expr $Floor7 - $phvert67];
+	node 566 $Pier5 $Floor7;	# zero-stiffness spring will be used on p-delta column
+	# column hinges at bottom of Story 7
+	node 177 $Pier1 [expr $Floor7 - $phvert67];
+	node 178 $Pier1 [expr $Floor7 - $phvert67];
+	node 277 $Pier2 [expr $Floor7 - $phvert67];
+	node 278 $Pier2 [expr $Floor7 - $phvert67];
+	node 377 $Pier3 [expr $Floor7 - $phvert67];
+	node 378 $Pier3 [expr $Floor7 - $phvert67];
+	node 477 $Pier4 [expr $Floor7 - $phvert67];
+	node 478 $Pier4 [expr $Floor7 - $phvert67];
+	node 577 $Pier5 $Floor7;	# zero-stiffness spring will be used on p-delta column
+	# column hinges at top of Story 7
+	node 185 $Pier1 [expr $Floor8 - $phvert89];
+	node 186 $Pier1 [expr $Floor8 - $phvert89];
+	node 285 $Pier2 [expr $Floor8 - $phvert89];
+	node 286 $Pier2 [expr $Floor8 - $phvert89];
+	node 385 $Pier3 [expr $Floor8 - $phvert89];
+	node 386 $Pier3 [expr $Floor8 - $phvert89];
+	node 485 $Pier4 [expr $Floor8 - $phvert89];
+	node 486 $Pier4 [expr $Floor8 - $phvert89];
+	node 586 $Pier5 $Floor8;	# zero-stiffness spring will be used on p-delta column
+	# column hinges at bottom of Story 8
+	node 187 $Pier1 [expr $Floor8 - $phvert89];
+	node 188 $Pier1 [expr $Floor8 - $phvert89];
+	node 287 $Pier2 [expr $Floor8 - $phvert89];
+	node 288 $Pier2 [expr $Floor8 - $phvert89];
+	node 387 $Pier3 [expr $Floor8 - $phvert89];
+	node 388 $Pier3 [expr $Floor8 - $phvert89];
+	node 487 $Pier4 [expr $Floor8 - $phvert89];
+	node 488 $Pier4 [expr $Floor8 - $phvert89];
+	node 587 $Pier5 $Floor8;	# zero-stiffness spring will be used on p-delta column
+	# column hinges at top of Story 8
+	node 195 $Pier1 [expr $Floor9 - $phvert89];
+	node 196 $Pier1 [expr $Floor9 - $phvert89];
+	node 295 $Pier2 [expr $Floor9 - $phvert89];
+	node 296 $Pier2 [expr $Floor9 - $phvert89];
+	node 395 $Pier3 [expr $Floor9 - $phvert89];
+	node 396 $Pier3 [expr $Floor9 - $phvert89];
+	node 495 $Pier4 [expr $Floor9 - $phvert89];
+	node 496 $Pier4 [expr $Floor9 - $phvert89];
+	node 596 $Pier5 $Floor9;	# zero-stiffness spring will be used on p-delta column
 
 	# beam hinges at Floor 2
 	node 121 [expr $Pier1 + $phlat1423] $Floor2;
