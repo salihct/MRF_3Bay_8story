@@ -175,20 +175,109 @@
 	node 346 $Pier3 $Floor4;	# zero-stiffness spring will be used on p-delta column
 
 	# beam hinges at Floor 2
-	node 121 [expr $Pier1 + $phlat234] $Floor2;
-	node 122 [expr $Pier1 + $phlat234] $Floor2;
-	node 223 [expr $Pier2 - $phlat234] $Floor2;
-	node 224 [expr $Pier2 - $phlat234] $Floor2;
+	node 121 [expr $Pier1 + $phlat1423] $Floor2;
+	node 122 [expr $Pier1 + $phlat1423] $Floor2;
+	node 223 [expr $Pier2 - $phlat2323] $Floor2;
+	node 224 [expr $Pier2 - $phlat2323] $Floor2;
+	node 221 [expr $Pier2 + $phlat2323] $Floor2;
+	node 222 [expr $Pier2 + $phlat2323] $Floor2;
+	node 323 [expr $Pier3 - $phlat2323] $Floor2;
+	node 324 [expr $Pier3 - $phlat2323] $Floor2;
+	node 321 [expr $Pier3 + $phlat2323] $Floor2;
+	node 322 [expr $Pier3 + $phlat2323] $Floor2;
+	node 423 [expr $Pier4 - $phlat1423] $Floor2;
+	node 424 [expr $Pier4 - $phlat1423] $Floor2;
 	# beam hinges at Floor 3
-	node 131 [expr $Pier1 + $phlat234] $Floor3;
-	node 132 [expr $Pier1 + $phlat234] $Floor3;
-	node 233 [expr $Pier2 - $phlat234] $Floor3;
-	node 234 [expr $Pier2 - $phlat234] $Floor3;
+	node 131 [expr $Pier1 + $phlat1423] $Floor3;
+	node 132 [expr $Pier1 + $phlat1423] $Floor3;
+	node 233 [expr $Pier2 - $phlat2323] $Floor3;
+	node 234 [expr $Pier2 - $phlat2323] $Floor3;
+	node 231 [expr $Pier2 + $phlat2323] $Floor3;
+	node 232 [expr $Pier2 + $phlat2323] $Floor3;
+	node 333 [expr $Pier3 - $phlat2323] $Floor3;
+	node 334 [expr $Pier3 - $phlat2323] $Floor3;
+	node 331 [expr $Pier3 + $phlat2323] $Floor3;
+	node 332 [expr $Pier3 + $phlat2323] $Floor3;
+	node 433 [expr $Pier4 - $phlat1423] $Floor3;
+	node 434 [expr $Pier4 - $phlat1423] $Floor3;
 	# beam hinges at Floor 4
-	node 141 [expr $Pier1 + $phlat234] $Floor4;
-	node 142 [expr $Pier1 + $phlat234] $Floor4;
-	node 243 [expr $Pier2 - $phlat234] $Floor4;
-	node 244 [expr $Pier2 - $phlat234] $Floor4;
+	node 141 [expr $Pier1 + $phlat1445] $Floor4;
+	node 142 [expr $Pier1 + $phlat1445] $Floor4;
+	node 243 [expr $Pier2 - $phlat2345] $Floor4;
+	node 244 [expr $Pier2 - $phlat2345] $Floor4;
+	node 241 [expr $Pier2 + $phlat2345] $Floor4;
+	node 242 [expr $Pier2 + $phlat2345] $Floor4;
+	node 343 [expr $Pier3 - $phlat2345] $Floor4;
+	node 344 [expr $Pier3 - $phlat2345] $Floor4;
+	node 341 [expr $Pier3 + $phlat2345] $Floor4;
+	node 342 [expr $Pier3 + $phlat2345] $Floor4;
+	node 443 [expr $Pier4 - $phlat1445] $Floor4;
+	node 444 [expr $Pier4 - $phlat1445] $Floor4;
+	# beam hinges at Floor 5
+	node 151 [expr $Pier1 + $phlat1445] $Floor5;
+	node 152 [expr $Pier1 + $phlat1445] $Floor5;
+	node 253 [expr $Pier2 - $phlat2345] $Floor5;
+	node 254 [expr $Pier2 - $phlat2345] $Floor5;
+	node 251 [expr $Pier2 + $phlat2345] $Floor5;
+	node 252 [expr $Pier2 + $phlat2345] $Floor5;
+	node 353 [expr $Pier3 - $phlat2345] $Floor5;
+	node 354 [expr $Pier3 - $phlat2345] $Floor5;
+	node 351 [expr $Pier3 + $phlat2345] $Floor5;
+	node 352 [expr $Pier3 + $phlat2345] $Floor5;
+	node 453 [expr $Pier4 - $phlat1445] $Floor5;
+	node 454 [expr $Pier4 - $phlat1445] $Floor5;
+	# beam hinges at Floor 6
+	node 161 [expr $Pier1 + $phlat1467] $Floor6;
+	node 162 [expr $Pier1 + $phlat1467] $Floor6;
+	node 263 [expr $Pier2 - $phlat2367] $Floor6;
+	node 264 [expr $Pier2 - $phlat2367] $Floor6;
+	node 261 [expr $Pier2 + $phlat2367] $Floor6;
+	node 262 [expr $Pier2 + $phlat2367] $Floor6;
+	node 363 [expr $Pier3 - $phlat2367] $Floor6;
+	node 364 [expr $Pier3 - $phlat2367] $Floor6;
+	node 361 [expr $Pier3 + $phlat2367] $Floor6;
+	node 362 [expr $Pier3 + $phlat2367] $Floor6;
+	node 463 [expr $Pier4 - $phlat1467] $Floor6;
+	node 464 [expr $Pier4 - $phlat1467] $Floor6;
+	# beam hinges at Floor 7
+	node 171 [expr $Pier1 + $phlat1467] $Floor7;
+	node 172 [expr $Pier1 + $phlat1467] $Floor7;
+	node 273 [expr $Pier2 - $phlat2367] $Floor7;
+	node 274 [expr $Pier2 - $phlat2367] $Floor7;
+	node 271 [expr $Pier2 + $phlat2367] $Floor7;
+	node 272 [expr $Pier2 + $phlat2367] $Floor7;
+	node 373 [expr $Pier3 - $phlat2367] $Floor7;
+	node 374 [expr $Pier3 - $phlat2367] $Floor7;
+	node 371 [expr $Pier3 + $phlat2367] $Floor7;
+	node 372 [expr $Pier3 + $phlat2367] $Floor7;
+	node 473 [expr $Pier4 - $phlat1467] $Floor7;
+	node 474 [expr $Pier4 - $phlat1467] $Floor7;
+	# beam hinges at Floor 8
+	node 181 [expr $Pier1 + $phlat1489] $Floor8;
+	node 182 [expr $Pier1 + $phlat1489] $Floor8;
+	node 283 [expr $Pier2 - $phlat2389] $Floor8;
+	node 284 [expr $Pier2 - $phlat2389] $Floor8;
+	node 281 [expr $Pier2 + $phlat2389] $Floor8;
+	node 282 [expr $Pier2 + $phlat2389] $Floor8;
+	node 383 [expr $Pier3 - $phlat2389] $Floor8;
+	node 384 [expr $Pier3 - $phlat2389] $Floor8;
+	node 381 [expr $Pier3 + $phlat2389] $Floor8;
+	node 382 [expr $Pier3 + $phlat2389] $Floor8;
+	node 483 [expr $Pier4 - $phlat1489] $Floor8;
+	node 484 [expr $Pier4 - $phlat1489] $Floor8;
+	# beam hinges at Floor 9
+	node 191 [expr $Pier1 + $phlat1489] $Floor9;
+	node 192 [expr $Pier1 + $phlat1489] $Floor9;
+	node 293 [expr $Pier2 - $phlat2389] $Floor9;
+	node 294 [expr $Pier2 - $phlat2389] $Floor9;
+	node 291 [expr $Pier2 + $phlat2389] $Floor9;
+	node 292 [expr $Pier2 + $phlat2389] $Floor9;
+	node 393 [expr $Pier3 - $phlat2389] $Floor9;
+	node 394 [expr $Pier3 - $phlat2389] $Floor9;
+	node 391 [expr $Pier3 + $phlat2389] $Floor9;
+	node 392 [expr $Pier3 + $phlat2389] $Floor9;
+	node 493 [expr $Pier4 - $phlat1489] $Floor9;
+	node 494 [expr $Pier4 - $phlat1489] $Floor9;
 	
 # define extra nodes for panel zones
 	# nodeID convention:  "xybc" where x = Pier #, y = Floor #, bc = location relative to beam-column joint
@@ -326,8 +415,8 @@
 # determine stiffness modifications to equate the stiffness of the spring-elastic element-spring subassembly to the stiffness of the actual frame member
 	# References: (1) Ibarra, L. F., and Krawinkler, H. (2005). "Global collapse of frame structures under seismic excitations," Technical Report 152,
 	#             		The John A. Blume Earthquake Engineering Research Center, Department of Civil Engineering, Stanford University, Stanford, CA.
-	#			  (2) Zareian, F. and Medina, R. A. (2010). “A practical method for proper modeling of structural damping in inelastic plane
-	#					structural systems,” Computers & Structures, Vol. 88, 1-2, pp. 45-53.
+	#			  (2) Zareian, F. and Medina, R. A. (2010). ï¿½A practical method for proper modeling of structural damping in inelastic plane
+	#					structural systems,ï¿½ Computers & Structures, Vol. 88, 1-2, pp. 45-53.
 	# calculate modified section properties to account for spring stiffness being in series with the elastic element stiffness
 	set n 10.0;		# stiffness multiplier for rotational spring
 
