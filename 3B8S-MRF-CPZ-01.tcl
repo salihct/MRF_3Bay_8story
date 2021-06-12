@@ -989,28 +989,29 @@
 	set twcol_2378 0.44;		# web thickness
 
 # define beam section W27x94 for Floor 2&3
-	set Abeam_23  30.0;		# cross-sectional area (full section properties)
-	set Ibeam_23  3620.0;	# moment of inertia  (full section properties)
+	set Abeam_23  27.7;		# cross-sectional area (full section properties)
+	set Ibeam_23  3270.0;	# moment of inertia  (full section properties)
 	set Mybeam_23 15290.0;	# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dbeam_23 27.1;		# depth
+	set dbeam_23 26.92;		# depth
 
 # define beam section W24x94 for Floor 4&5
-	set Abeam_45  30.0;		# cross-sectional area (full section properties)
-	set Ibeam_45  3620.0;	# moment of inertia  (full section properties)
+	set Abeam_45  27.7;		# cross-sectional area (full section properties)
+	set Ibeam_45 2700.0;	# moment of inertia  (full section properties)
 	set Mybeam_45 13970.0;	# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dbeam_45 27.1;		# depth
+	set dbeam_45 24.31;		# depth
 
 # define beam section W24x76 for Floor 6&7
-	set Abeam_67  30.0;		# cross-sectional area (full section properties)
-	set Ibeam_67  3620.0;	# moment of inertia  (full section properties)
+	set Abeam_67  22.4;		# cross-sectional area (full section properties)
+	set Ibeam_67  2100.0;	# moment of inertia  (full section properties)
 	set Mybeam_67 11000.0;	# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dbeam_67 27.1;		# depth
+	set dbeam_67 23.92;		# depth
 
 # define beam section W18x50 for Floor 8&9
-	set Abeam_89  30.0;		# cross-sectional area (full section properties)
-	set Ibeam_89  3620.0;	# moment of inertia  (full section properties)
+	set Abeam_89  14.7;		# cross-sectional area (full section properties)
+	set Ibeam_89  800.0;	# moment of inertia  (full section properties)
 	set Mybeam_89 5555.0;	# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dbeam_89 27.1;		# depth
+	set dbeam_89 17.99;		# depth
+
 
 # determine stiffness modifications to equate the stiffness of the spring-elastic element-spring subassembly to the stiffness of the actual frame member
 	# References: (1) Ibarra, L. F., and Krawinkler, H. (2005). "Global collapse of frame structures under seismic excitations," Technical Report 152,
