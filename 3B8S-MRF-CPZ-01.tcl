@@ -489,20 +489,72 @@
 	# command: mass $nodeID $dof1mass $dof2mass $dof3mass
 	mass 1205 $NodalMass2 $Negligible $Negligible;	# Pier 1, Floor 2
 	mass 2205 $NodalMass2 $Negligible $Negligible;	# Pier 2, Floor 2
+	mass 3205 $NodalMass2 $Negligible $Negligible;	# Pier 3, Floor 2
+	mass 4205 $NodalMass2 $Negligible $Negligible;	# Pier 4, Floor 2
+	mass 5205 $NodalMass2 $Negligible $Negligible;	# Pier 5, Floor 2
+
 	mass 1305 $NodalMass3 $Negligible $Negligible;	# Pier 1, Floor 3
 	mass 2305 $NodalMass3 $Negligible $Negligible;	# Pier 2, Floor 3
+	mass 3305 $NodalMass3 $Negligible $Negligible;	# Pier 3, Floor 3
+	mass 4305 $NodalMass3 $Negligible $Negligible;	# Pier 4, Floor 3
+	mass 5305 $NodalMass3 $Negligible $Negligible;	# Pier 5, Floor 3
+
 	mass 1405 $NodalMass4 $Negligible $Negligible;	# Pier 1, Floor 4
 	mass 2405 $NodalMass4 $Negligible $Negligible;	# Pier 2, Floor 4
+	mass 3405 $NodalMass4 $Negligible $Negligible;	# Pier 3, Floor 4
+	mass 4405 $NodalMass4 $Negligible $Negligible;	# Pier 4, Floor 4
+	mass 5405 $NodalMass4 $Negligible $Negligible;	# Pier 5, Floor 4
+
+	mass 1505 $NodalMass5 $Negligible $Negligible;	# Pier 1, Floor 5
+	mass 2505 $NodalMass5 $Negligible $Negligible;	# Pier 2, Floor 5
+	mass 3505 $NodalMass5 $Negligible $Negligible;	# Pier 3, Floor 5
+	mass 4505 $NodalMass5 $Negligible $Negligible;	# Pier 4, Floor 5
+	mass 5505 $NodalMass5 $Negligible $Negligible;	# Pier 5, Floor 5
+	
 
 # constrain beam-column joints in a floor to have the same lateral displacement using the "equalDOF" command
 	# command: equalDOF $MasterNodeID $SlaveNodeID $dof1 $dof2...
 	set dof1 1;	# constrain movement in dof 1 (x-direction)
-	equalDOF 1205 2205 $dof1;	# Floor 2:  Pier 1 to Pier 2
-	equalDOF 1205 32 $dof1;		# Floor 2:  Pier 1 to Pier 3
-	equalDOF 1305 2305 $dof1;	# Floor 3:  Pier 1 to Pier 2
-	equalDOF 1305 33 $dof1;		# Floor 3:  Pier 1 to Pier 3
-	equalDOF 1405 2405 $dof1;	# Floor 4:  Pier 1 to Pier 2
-	equalDOF 1405 34 $dof1;		# Floor 4:  Pier 1 to Pier 3
+	equalDOF 1205 2205 $dof1;		# Floor 2:  Pier 1 to Pier 2
+	equalDOF 1205 3205 $dof1;		# Floor 2:  Pier 1 to Pier 3
+	equalDOF 1205 4205 $dof1;		# Floor 2:  Pier 1 to Pier 4
+	equalDOF 1205 52 $dof1;			# Floor 2:  Pier 1 to Pier 5
+
+	equalDOF 1305 2305 $dof1;		# Floor 3:  Pier 1 to Pier 2
+	equalDOF 1305 3305 $dof1;		# Floor 3:  Pier 1 to Pier 3
+	equalDOF 1305 4305 $dof1;		# Floor 3:  Pier 1 to Pier 4
+	equalDOF 1305 53 $dof1;			# Floor 3:  Pier 1 to Pier 5
+
+	equalDOF 1405 2405 $dof1;		# Floor 4:  Pier 1 to Pier 2
+	equalDOF 1405 3405 $dof1;		# Floor 4:  Pier 1 to Pier 3
+	equalDOF 1405 4405 $dof1;		# Floor 4:  Pier 1 to Pier 4
+	equalDOF 1405 54 $dof1;			# Floor 4:  Pier 1 to Pier 5
+
+	equalDOF 1505 2505 $dof1;		# Floor 5:  Pier 1 to Pier 2
+	equalDOF 1505 3505 $dof1;		# Floor 5:  Pier 1 to Pier 3
+	equalDOF 1505 4505 $dof1;		# Floor 5:  Pier 1 to Pier 4
+	equalDOF 1505 55 $dof1;			# Floor 5:  Pier 1 to Pier 5
+
+	equalDOF 1605 2605 $dof1;		# Floor 6:  Pier 1 to Pier 2
+	equalDOF 1605 3605 $dof1;		# Floor 6:  Pier 1 to Pier 3
+	equalDOF 1605 4605 $dof1;		# Floor 6:  Pier 1 to Pier 4
+	equalDOF 1605 56 $dof1;			# Floor 6:  Pier 1 to Pier 5
+
+	equalDOF 1705 2705 $dof1;		# Floor 7:  Pier 1 to Pier 2
+	equalDOF 1705 3705 $dof1;		# Floor 7:  Pier 1 to Pier 3
+	equalDOF 1705 4705 $dof1;		# Floor 7:  Pier 1 to Pier 4
+	equalDOF 1705 57 $dof1;			# Floor 7:  Pier 1 to Pier 5
+
+	equalDOF 1805 2805 $dof1;		# Floor 8:  Pier 1 to Pier 2
+	equalDOF 1805 3805 $dof1;		# Floor 8:  Pier 1 to Pier 3
+	equalDOF 1805 4805 $dof1;		# Floor 8:  Pier 1 to Pier 4
+	equalDOF 1805 58 $dof1;			# Floor 8:  Pier 1 to Pier 5
+
+	equalDOF 1905 2905 $dof1;		# Floor 9:  Pier 1 to Pier 2
+	equalDOF 1905 3905 $dof1;		# Floor 9:  Pier 1 to Pier 3
+	equalDOF 1905 4905 $dof1;		# Floor 9:  Pier 1 to Pier 4
+	equalDOF 1905 59 $dof1;			# Floor 9:  Pier 1 to Pier 5
+
 
 # assign boundary condidtions 
 	# command:  fix nodeID dxFixity dyFixity rzFixity
@@ -510,7 +562,9 @@
 	# fix the base of the building; pin P-delta column at base
 	fix 11 1 1 1;
 	fix 21 1 1 1;
-	fix 31 1 1 0;	# P-delta column is pinned
+	fix 31 1 1 1;
+	fix 41 1 1 1;
+	fix 51 1 1 0;	# P-delta column is pinned
 
 ###################################################################################################
 #          Define Section Properties and Elements													  
