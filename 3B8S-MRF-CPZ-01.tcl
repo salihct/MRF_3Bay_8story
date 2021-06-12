@@ -912,77 +912,81 @@
 	set Fy 50.0;			# steel yield strength
 
 # define column section W24x146 for Story 1&2 for pier 1&4 
-	set Acol_1412  38.5;		# cross-sectional area
-	set Icol_1412  4020.0;		# moment of inertia
+
+	set Acol_1412  43.0;		# cross-sectional area
+	set Icol_1412  4580.0;		# moment of inertia
 	set Mycol_1412 22990.0;		# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dcol_1412 24.5;			# depth
+	set dcol_1412 24.74;			# depth
 	set bfcol_1412 12.9;		# flange width
-	set tfcol_1412 0.96;		# flange thickness
-	set twcol_1412 0.605;		# web thickness
+	set tfcol_1412 1.09;		# flange thickness
+	set twcol_1412 0.65;		# web thickness
 
 # define column section W24x162 for Story 1&2 for pier 2&3 
-	set Acol_2312  38.5;		# cross-sectional area
-	set Icol_2312  4020.0;		# moment of inertia
+
+	set Acol_2312  47.7;		# cross-sectional area
+	set Icol_2312  5170.0;		# moment of inertia
 	set Mycol_2312 25740.0;		# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dcol_2312 24.5;			# depth
-	set bfcol_2312 12.9;		# flange width
-	set tfcol_2312 0.96;		# flange thickness
-	set twcol_2312 0.605;		# web thickness
+	set dcol_2312 25.0;			# depth
+	set bfcol_2312 12.955;		# flange width
+	set tfcol_2312 1.22;		# flange thickness
+	set twcol_2312 0.705;		# web thickness
 
 # define column section W24x131 for Story 3&4 for pier 1&4 
 	set Acol_1434  38.5;		# cross-sectional area
 	set Icol_1434  4020.0;		# moment of inertia
 	set Mycol_1434 20350.0;		# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dcol_1434 24.5;			# depth
-	set bfcol_1434 12.9;		# flange width
+	set dcol_1434 24.48;			# depth
+	set bfcol_1434 12.855;		# flange width
 	set tfcol_1434 0.96;		# flange thickness
 	set twcol_1434 0.605;		# web thickness
 
 # define column section W24x162 for Story 3&4 for pier 2&3 
-	set Acol_2334  38.5;		# cross-sectional area
-	set Icol_2334  4020.0;		# moment of inertia
+
+	set Acol_2334  47.7;		# cross-sectional area
+	set Icol_2334  5170.0;		# moment of inertia
 	set Mycol_2334 25740.0;		# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dcol_2334 24.5;			# depth
-	set bfcol_2334 12.9;		# flange width
-	set tfcol_2334 0.96;		# flange thickness
-	set twcol_2334 0.605;		# web thickness
+	set dcol_2334 25.0;			# depth
+	set bfcol_2334 12.955;		# flange width
+	set tfcol_2334 1.22;		# flange thickness
+	set twcol_2334 0.705;		# web thickness
 
 # define column section W24x94 for Story 5&6 for pier 1&4 
-	set Acol_1456  38.5;		# cross-sectional area
-	set Icol_1456  4020.0;		# moment of inertia
+	set Acol_1456  27.7;		# cross-sectional area
+	set Icol_1456  2700.0;		# moment of inertia
 	set Mycol_1456 13970.0;		# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dcol_1456 24.5;			# depth
-	set bfcol_1456 12.9;		# flange width
-	set tfcol_1456 0.96;		# flange thickness
-	set twcol_1456 0.605;		# web thickness
+	set dcol_1456 24.31;			# depth
+	set bfcol_1456 9.065;		# flange width
+	set tfcol_1456 0.875;		# flange thickness
+	set twcol_1456 0.515;		# web thickness
+
 
 # define column section W24x131 for Story 5&6 for pier 2&3 
 	set Acol_2356  38.5;		# cross-sectional area
 	set Icol_2356  4020.0;		# moment of inertia
 	set Mycol_2356 20350.0;		# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dcol_2356 24.5;			# depth
+	set dcol_2356 24.48;			# depth
 	set bfcol_2356 12.9;		# flange width
 	set tfcol_2356 0.96;		# flange thickness
 	set twcol_2356 0.605;		# web thickness
 
 # define column section W24x76 for Story 7&8 for pier 1&4 
-	set Acol_1478  38.5;		# cross-sectional area
-	set Icol_1478  4020.0;		# moment of inertia
+
+	set Acol_1478  22.4;		# cross-sectional area
+	set Icol_1478  2100.0;		# moment of inertia
 	set Mycol_1478 11000.0;		# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dcol_1478 24.5;			# depth
-	set bfcol_1478 12.9;		# flange width
-	set tfcol_1478 0.96;		# flange thickness
-	set twcol_1478 0.605;		# web thickness
+	set dcol_1478 23.92;			# depth
+	set bfcol_1478 8.99;		# flange width
+	set tfcol_1478 0.68;		# flange thickness
+	set twcol_1478 0.44;		# web thickness
 
 # define column section W24x76 for Story 7&8 for pier 2&3 
-	set Acol_2378  38.5;		# cross-sectional area
-	set Icol_2378  4020.0;		# moment of inertia
+	set Acol_2378  22.4;		# cross-sectional area
+	set Icol_2378  2100.0;		# moment of inertia
 	set Mycol_2378 11000.0;		# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dcol_2378 24.5;			# depth
-	set bfcol_2378 12.9;		# flange width
-	set tfcol_2378 0.96;		# flange thickness
-	set twcol_2378 0.605;		# web thickness
-
+	set dcol_2378 23.92;			# depth
+	set bfcol_2378 8.99;		# flange width
+	set tfcol_2378 0.68;		# flange thickness
+	set twcol_2378 0.44;		# web thickness
 
 # define beam section W27x102 for Floor 2,3 & 4
 	set Abeam_23  30.0;		# cross-sectional area (full section properties)
