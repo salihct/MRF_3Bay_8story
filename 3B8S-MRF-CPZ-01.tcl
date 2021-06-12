@@ -76,22 +76,46 @@
 	set Floor9 [expr $Floor8 + $HStoryTyp];
 	
 # calculate panel zone dimensions
-	set pzlat234   [expr 24.5/2.0];	# lateral dist from CL of beam-col joint to edge of panel zone (= half the column depth)
-	set pzvert234 [expr 27.1/2.0];	# vert dist from CL of beam-col joint to edge of panel zone (= half the beam depth)
-
+	set pzlat1423   [expr 24.74/2.0];	# lateral dist from CL of beam-col joint to edge of panel zone (= half the column depth)  pzlatx1x2y1y2 , x1=peir x2=peir y1=floor y2=floor
+	set pzlat1445   [expr 24.48/2.0];	# pzlatx1x2y1y2 , x1=peir x2=peir y1=floor y2=floor
+	set pzlat1467   [expr 24.31/2.0];	# pzlatx1x2y1y2 , x1=peir x2=peir y1=floor y2=floor
+	set pzlat1489   [expr 23.92/2.0];	# pzlatx1x2y1y2 , x1=peir x2=peir y1=floor y2=floor
+	
+	set pzlat2323   [expr 25/2.0];	# lateral dist from CL of beam-col joint to edge of panel zone (= half the column depth)  pzlatx1x2y1y2 , x1=peir x2=peir y1=floor y2=floor
+	set pzlat2345   [expr 25/2.0];	# pzlatx1x2y1y2 , x1=peir x2=peir y1=floor y2=floor
+	set pzlat2367   [expr 24.48/2.0];	# pzlatx1x2y1y2 , x1=peir x2=peir y1=floor y2=floor
+	set pzlat2389   [expr 23.92/2.0];	# pzlatx1x2y1y2 , x1=peir x2=peir y1=floor y2=floor
+	
+	set pzvert23 [expr 26.92/2.0];	# vert dist from CL of beam-col joint to edge of panel zone (= half the beam depth) pzvertx1x2 ,x1=floor x2=floor
+	set pzvert45 [expr 24.31/2.0];
+	set pzvert67 [expr 23.92/2.0];
+	set pzvert89 [expr 17.99/2.0];
+	
 # calculate plastic hinge offsets from beam-column centerlines:
-	set phlat234 [expr $pzlat234  + 7.5 + 22.5/2.0];	# lateral dist from CL of beam-col joint to beam hinge
-	set phvert234 [expr $pzvert234 + 0.0];			# vert dist from CL of beam-col joint to column hinge (forms at edge of panel zone)
+	set phlat1423 [expr $pzlat1423  + 7.5 + 22.5/2.0];	# lateral dist from CL of beam-col joint to beam hinge
+	set phlat1445 [expr $pzlat1445  + 7.5 + 22.5/2.0];
+	set phlat1467 [expr $pzlat1467  + 7.5 + 22.5/2.0];	
+	set phlat1489 [expr $pzlat1489  + 7.5 + 22.5/2.0];
+	
+	set phlat2323 [expr $pzlat2323  + 7.5 + 22.5/2.0];	# lateral dist from CL of beam-col joint to beam hinge
+	set phlat2345 [expr $pzlat2345  + 7.5 + 22.5/2.0];
+	set phlat2367 [expr $pzlat2367  + 7.5 + 22.5/2.0];	
+	set phlat2389 [expr $pzlat2389  + 7.5 + 22.5/2.0];
+	
+	set phvert23 [expr $pzvert23 + 0.0];			# vert dist from CL of beam-col joint to column hinge (forms at edge of panel zone)
+	set phvert45 [expr $pzvert45 + 0.0];
+	set phvert67 [expr $pzvert67 + 0.0];
+	set phvert89 [expr $pzvert89 + 0.0];
 
 # calculate nodal masses -- lump floor masses at frame nodes
 	set g 386.2;				# acceleration due to gravity
-	set Floor2Weight 535.0;		# weight of Floor 2 in kips
-	set Floor3Weight 525.0;		# weight of Floor 3 in kips
-	set Floor4Weight 525.0;		# weight of Floor 4 in kips
-	set WBuilding  [expr $Floor2Weight + $Floor3Weight];# total building weight
-	set NodalMass2 [expr ($Floor2Weight/$g) / (2.0)];	# mass at each node on Floor 2
-	set NodalMass3 [expr ($Floor3Weight/$g) / (2.0)];	# mass at each node on Floor 3
-	set NodalMass4 [expr ($Floor4Weight/$g) / (2.0)];	# mass at each node on Floor 4
+	set FloorWeight 586.25;		# weight of all Floor  in kips
+	#set Floor3Weight 525.0;		# weight of Floor 3 in kips
+	#set Floor4Weight 525.0;		# weight of Floor 4 in kips
+	set WBuilding  [expr $FloorWeight * $NStories]; # total building weight
+	set NodalMass [expr ($FloorWeight/$g) / (4.0)];	# mass at each node on Floor 2
+	#set NodalMass3 [expr ($Floor3Weight/$g) / (2.0)];	# mass at each node on Floor 3
+	#set NodalMass4 [expr ($Floor4Weight/$g) / (2.0)];	# mass at each node on Floor 4
 	set Negligible 1e-9;	# a very small number to avoid problems with zero
 
 # define nodes and assign masses to beam-column intersections of frame
@@ -103,6 +127,7 @@
 	node 32 $Pier3 $Floor2;
 	node 33 $Pier3 $Floor3;
 	node 34 $Pier3 $Floor4;
+	
 
 # define extra nodes for plastic hinge rotational springs
 	# nodeID convention:  "xya" where x = Pier #, y = Floor #, a = location relative to beam-column joint
