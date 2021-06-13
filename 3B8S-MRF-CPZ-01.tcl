@@ -1446,28 +1446,86 @@
 		
 		# point loads on leaning column nodes
 		# command: load node Fx Fy Mz
-		set P_PD2 [expr -398.02];	# Floor 2
-		set P_PD3 [expr -391.31];	# Floor 3
-		set P_PD4 [expr -391.31];	# Floor 4
 		
-		load 32 0.0 $P_PD2 0.0;		# Floor 2
-		load 33 0.0 $P_PD3 0.0;		# Floor 3
-		load 34 0.0 $P_PD4 0.0;		# Floor 4
+		set P_PD2 [expr -519.32];	# Floor 2
+		set P_PD3 [expr -519.32];	# Floor 3
+		set P_PD4 [expr -519.32];	# Floor 4
+		set P_PD5 [expr -519.32];	# Floor 5
+		set P_PD6 [expr -519.32];	# Floor 6
+		set P_PD7 [expr -519.32];	# Floor 7
+		set P_PD8 [expr -519.32];	# Floor 8
+		set P_PD9 [expr -519.32];	# Floor 9
+		
+		
+		load 52 0.0 $P_PD2 0.0;		# Floor 2
+		load 53 0.0 $P_PD3 0.0;		# Floor 3
+		load 54 0.0 $P_PD4 0.0;		# Floor 4
+		load 55 0.0 $P_PD5 0.0;		# Floor 5
+		load 56 0.0 $P_PD6 0.0;		# Floor 6
+		load 57 0.0 $P_PD7 0.0;		# Floor 7
+		load 58 0.0 $P_PD8 0.0;		# Floor 8
+		load 59 0.0 $P_PD9 0.0;		# Floor 9
+		
+
 		
 		# point loads on frame column nodes
-		set P_F2 [expr 0.5*(-1.0*$Floor2Weight-$P_PD2)];	# load on each frame node in Floor 2
-		set P_F3 [expr 0.5*(-1.0*$Floor3Weight-$P_PD3)];	# load on each frame node in Floor 3
-		set P_F4 [expr 0.5*(-1.0*$Floor4Weight-$P_PD4)];	# load on each frame node in Floor 4
+		set P_F2 [expr 0.25*(-1.0*$FloorWeight-$P_PD2)];	# load on each frame node in Floor 2
+		set P_F3 [expr 0.25*(-1.0*$FloorWeight-$P_PD3)];	# load on each frame node in Floor 3
+		set P_F4 [expr 0.25*(-1.0*$FloorWeight-$P_PD4)];	# load on each frame node in Floor 4
+		set P_F5 [expr 0.25*(-1.0*$FloorWeight-$P_PD5)];	# load on each frame node in Floor 5
+		set P_F6 [expr 0.25*(-1.0*$FloorWeight-$P_PD6)];	# load on each frame node in Floor 6
+		set P_F7 [expr 0.25*(-1.0*$FloorWeight-$P_PD7)];	# load on each frame node in Floor 7
+		set P_F8 [expr 0.25*(-1.0*$FloorWeight-$P_PD8)];	# load on each frame node in Floor 8
+		set P_F9 [expr 0.25*(-1.0*$FloorWeight-$P_PD9)];	# load on each frame node in Floor 9
+		
 		
 		# Floor 2 loads
 		load 127 0.0 $P_F2 0.0;
-		load 227 0.0 $P_F2 0.0;		
-		# Floor 3 loads		
+		load 227 0.0 $P_F2 0.0;
+		load 327 0.0 $P_F2 0.0;
+		load 427 0.0 $P_F2 0.0;	
+
+		# Floor 3 loads
 		load 137 0.0 $P_F3 0.0;
 		load 237 0.0 $P_F3 0.0;
-		# Floor 4 loads		
+		load 337 0.0 $P_F3 0.0;
+		load 437 0.0 $P_F3 0.0;
+
+		# Floor 4 loads
 		load 147 0.0 $P_F4 0.0;
 		load 247 0.0 $P_F4 0.0;
+		load 347 0.0 $P_F4 0.0;
+		load 447 0.0 $P_F4 0.0;	
+
+		# Floor 5 loads
+		load 157 0.0 $P_F5 0.0;
+		load 257 0.0 $P_F5 0.0;
+		load 357 0.0 $P_F5 0.0;
+		load 457 0.0 $P_F5 0.0;	
+
+		# Floor 6 loads
+		load 167 0.0 $P_F6 0.0;
+		load 267 0.0 $P_F6 0.0;
+		load 367 0.0 $P_F6 0.0;
+		load 467 0.0 $P_F6 0.0;	
+
+		# Floor 7 loads
+		load 177 0.0 $P_F7 0.0;
+		load 277 0.0 $P_F7 0.0;
+		load 377 0.0 $P_F7 0.0;
+		load 477 0.0 $P_F7 0.0;	
+
+		# Floor 8 loads
+		load 187 0.0 $P_F8 0.0;
+		load 287 0.0 $P_F8 0.0;
+		load 387 0.0 $P_F8 0.0;
+		load 487 0.0 $P_F8 0.0;	
+
+		# Floor 9 loads
+		load 197 0.0 $P_F9 0.0;
+		load 297 0.0 $P_F9 0.0;
+		load 397 0.0 $P_F9 0.0;
+		load 497 0.0 $P_F9 0.0;	
 	}
 
 # Gravity-analysis: load-controlled static analysis
