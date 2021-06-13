@@ -1120,18 +1120,109 @@
 	# element between plastic hinges: eleID convention = "2xy" where 2 = beam, x = Bay #, y = Floor #
 	# element between plastic hinge and panel zone: eleID convention = "2xya" where 2 = beam, x = Bay #, y = Floor #, a = loc in bay
 	#	"a" convention: 1 = left end of bay; 2 = right end of bay
-	# Beams Story 1
+	# Beams Story 1 or floor 2
 	element elasticBeamColumn  2121 1205 121  $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
 	element elasticBeamColumn  212  122  223  $Abeam_23 $Es $Ibeam_23mod $PDeltaTransf;
 	element elasticBeamColumn  2122 224  2210 $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
-	# Beams Story 2
+
+	element elasticBeamColumn  2221 2205 221  $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
+	element elasticBeamColumn  222  222  323  $Abeam_23 $Es $Ibeam_23mod $PDeltaTransf;
+	element elasticBeamColumn  2222 324  3210 $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
+
+	element elasticBeamColumn  2321 3205 321  $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
+	element elasticBeamColumn  232  322  423  $Abeam_23 $Es $Ibeam_23mod $PDeltaTransf;
+	element elasticBeamColumn  2322 424  4210 $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
+
+	# Beams Story 2 or floor 3
 	element elasticBeamColumn  2131 1305 131  $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
 	element elasticBeamColumn  213  132  233  $Abeam_23 $Es $Ibeam_23mod $PDeltaTransf;
 	element elasticBeamColumn  2132 234  2310 $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
-	# Beams Story 3
-	element elasticBeamColumn  2141 1405 141  $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
-	element elasticBeamColumn  214  142  243  $Abeam_23 $Es $Ibeam_23mod $PDeltaTransf;
-	element elasticBeamColumn  2142 244  2410 $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
+
+	element elasticBeamColumn  2231 2305 231  $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
+	element elasticBeamColumn  223  232  333  $Abeam_23 $Es $Ibeam_23mod $PDeltaTransf;
+	element elasticBeamColumn  2232 334  3310 $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
+
+	element elasticBeamColumn  2331 3305 331  $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
+	element elasticBeamColumn  233  332  433  $Abeam_23 $Es $Ibeam_23mod $PDeltaTransf;
+	element elasticBeamColumn  2332 434  4310 $Abeam_23 $Es $Ibeam_23    $PDeltaTransf;
+	
+    # Beams Story 3 or floor 4
+	element elasticBeamColumn  2141 1405 141  $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+	element elasticBeamColumn  214  142  243  $Abeam_45 $Es $Ibeam_45mod $PDeltaTransf;
+	element elasticBeamColumn  2142 244  2410 $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+
+	element elasticBeamColumn  2241 2405 241  $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+	element elasticBeamColumn  224  242  343  $Abeam_45 $Es $Ibeam_45mod $PDeltaTransf;
+	element elasticBeamColumn  2242 344  3410 $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+
+	element elasticBeamColumn  2341 3405 341  $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+	element elasticBeamColumn  234  342  443  $Abeam_45 $Es $Ibeam_45mod $PDeltaTransf;
+	element elasticBeamColumn  2342 444  4410 $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+
+	# Beams Story 4 or floor 5
+	element elasticBeamColumn  2151 1505 151  $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+	element elasticBeamColumn  215  152  253  $Abeam_45 $Es $Ibeam_45mod $PDeltaTransf;
+	element elasticBeamColumn  2152 254  2510 $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+
+	element elasticBeamColumn  2251 2505 251  $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+	element elasticBeamColumn  225  252  353  $Abeam_45 $Es $Ibeam_45mod $PDeltaTransf;
+	element elasticBeamColumn  2252 354  3510 $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+
+	element elasticBeamColumn  2351 3505 351  $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+	element elasticBeamColumn  235  352  453  $Abeam_45 $Es $Ibeam_45mod $PDeltaTransf;
+	element elasticBeamColumn  2352 454  4510 $Abeam_45 $Es $Ibeam_45    $PDeltaTransf;
+
+	# Beams Story 5 or floor 6
+	element elasticBeamColumn  2161 1605 161  $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+	element elasticBeamColumn  216  162  263  $Abeam_67 $Es $Ibeam_67mod $PDeltaTransf;
+	element elasticBeamColumn  2162 264  2610 $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+
+	element elasticBeamColumn  2261 2605 261  $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+	element elasticBeamColumn  226  262  363  $Abeam_67 $Es $Ibeam_67mod $PDeltaTransf;
+	element elasticBeamColumn  2262 364  3610 $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+
+	element elasticBeamColumn  2361 3605 361  $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+	element elasticBeamColumn  236  362  463  $Abeam_67 $Es $Ibeam_67mod $PDeltaTransf;
+	element elasticBeamColumn  2362 464  4610 $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+
+	# Beams Story 6 or floor 7
+	element elasticBeamColumn  2171 1705 171  $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+	element elasticBeamColumn  217  172  273  $Abeam_67 $Es $Ibeam_67mod $PDeltaTransf;
+	element elasticBeamColumn  2172 274  2710 $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+
+	element elasticBeamColumn  2271 2705 271  $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+	element elasticBeamColumn  227  272  373  $Abeam_67 $Es $Ibeam_67mod $PDeltaTransf;
+	element elasticBeamColumn  2272 374  3710 $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+
+	element elasticBeamColumn  2371 3705 371  $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+	element elasticBeamColumn  237  372  473  $Abeam_67 $Es $Ibeam_67mod $PDeltaTransf;
+	element elasticBeamColumn  2372 474  4710 $Abeam_67 $Es $Ibeam_67    $PDeltaTransf;
+
+	# Beams Story 7 or floor 8
+	element elasticBeamColumn  2181 1805 181  $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+	element elasticBeamColumn  218  182  283  $Abeam_89 $Es $Ibeam_89mod $PDeltaTransf;
+	element elasticBeamColumn  2182 284  2810 $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+
+	element elasticBeamColumn  2281 2805 281  $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+	element elasticBeamColumn  228  282  383  $Abeam_89 $Es $Ibeam_89mod $PDeltaTransf;
+	element elasticBeamColumn  2282 384  3810 $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+
+	element elasticBeamColumn  2381 3805 381  $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+	element elasticBeamColumn  238  382  483  $Abeam_89 $Es $Ibeam_89mod $PDeltaTransf;
+	element elasticBeamColumn  2382 484  4810 $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+
+	# Beams Story 8 or floor 9
+	element elasticBeamColumn  2191 1905 191  $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+	element elasticBeamColumn  219  192  293  $Abeam_89 $Es $Ibeam_89mod $PDeltaTransf;
+	element elasticBeamColumn  2192 294  2910 $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+
+	element elasticBeamColumn  2291 2905 291  $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+	element elasticBeamColumn  229  292  393  $Abeam_89 $Es $Ibeam_89mod $PDeltaTransf;
+	element elasticBeamColumn  2292 394  3910 $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+
+	element elasticBeamColumn  2391 3905 391  $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
+	element elasticBeamColumn  239  392  493  $Abeam_89 $Es $Ibeam_89mod $PDeltaTransf;
+	element elasticBeamColumn  2392 494  4910 $Abeam_89 $Es $Ibeam_89    $PDeltaTransf;
 # define p-delta columns and rigid links
 	set TrussMatID 600;		# define a material ID
 	set Arigid 1000.0;		# define area of truss section (make much larger than A of frame elements)
