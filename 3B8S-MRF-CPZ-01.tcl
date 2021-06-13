@@ -1622,14 +1622,24 @@
 	#Spring ID: "5xya" where 5 = leaning column spring, x = Pier #, y = Story #, a = location in story
 	# "a" convention: 1 = bottom of story, 2 = top of story
 	# rotLeaningCol ElemID ndR ndC 
-	rotLeaningCol 5312 32 326;	# top of Story 1
-	rotLeaningCol 5321 32 327;	# bottom of Story 2
-	rotLeaningCol 5322 33 336;	# top of Story 2
-	rotLeaningCol 5331 33 337;	# bottom of Story 3
-	rotLeaningCol 5332 34 346;	# top of Story 3
+	rotLeaningCol 5512 52 526;	# top of Story 1
+	rotLeaningCol 5521 52 527;	# bottom of Story 2
+	rotLeaningCol 5522 53 536;	# top of Story 2
+	rotLeaningCol 5531 53 537;	# bottom of Story 3
+	rotLeaningCol 5532 54 546;	# top of Story 3
+	rotLeaningCol 5541 54 547;	# bottom of Story 4
+	rotLeaningCol 5542 55 556;	# top of Story 4
+	rotLeaningCol 5551 55 557;	# bottom of Story 5
+	rotLeaningCol 5552 56 566;	# top of Story 5
+	rotLeaningCol 5561 56 567;	# bottom of Story 6
+	rotLeaningCol 5562 57 576;	# top of Story 6
+	rotLeaningCol 5571 57 577;	# bottom of Story 7
+	rotLeaningCol 5572 58 586;	# top of Story 7
+	rotLeaningCol 5581 58 587;	# bottom of Story 8
+	rotLeaningCol 5582 59 596;	# top of Story 8
 	
 	# create region for P-Delta column springs
-	region 3 -ele 5312 5321 5322 5331 5332;
+	region 3 -ele 5512 5521 5522 5531 5532 5541 5542 5551 5552 5561 5562 5571 5572 5581 5582;
 	
 ############################################################################
 #                       Eigenvalue Analysis                    			   
