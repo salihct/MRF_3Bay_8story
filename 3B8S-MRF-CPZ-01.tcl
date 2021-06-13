@@ -1377,10 +1377,10 @@
 	rotSpring2DModIKModel 3331 337 338 $Ks_col_233 $b23 $b23 $Mycol_2334 [expr -$Mycol_2334] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	rotSpring2DModIKModel 3431 437 438 $Ks_col_143 $b14 $b14 $Mycol_1434 [expr -$Mycol_1434] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	#col springs @ top of Story 3 (below Floor 4)
-	rotSpring2DModIKModel 3132 146 145 $Ks_col_143 $b14 $b14 $Mycol_14! [expr -$Mycol_14!] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	rotSpring2DModIKModel 3232 246 245 $Ks_col_233 $b23 $b23 $Mycol_23! [expr -$Mycol_23!] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	rotSpring2DModIKModel 3332 346 345 $Ks_col_233 $b23 $b23 $Mycol_23! [expr -$Mycol_23!] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	rotSpring2DModIKModel 3432 446 445 $Ks_col_143 $b14 $b14 $Mycol_14! [expr -$Mycol_14!] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3132 146 145 $Ks_col_143 $b14 $b14 $Mycol_1434 [expr -$Mycol_1434] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3232 246 245 $Ks_col_233 $b23 $b23 $Mycol_2334 [expr -$Mycol_2334] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3332 346 345 $Ks_col_233 $b23 $b23 $Mycol_2334 [expr -$Mycol_2334] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3432 446 445 $Ks_col_143 $b14 $b14 $Mycol_1434 [expr -$Mycol_1434] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 
 	set a_mem14 [expr ($n+1.0)*($Mycol_1434*($McMy-1.0)) / ($Ks_col_144*$th_pP)];	# strain hardening ratio of spring
 	set b14 [expr ($a_mem14)/(1.0+$n*(1.0-$a_mem14))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
