@@ -254,7 +254,7 @@
 	node 376 $Pier3 [expr $Floor7 - $phvert67];
 	node 475 $Pier4 [expr $Floor7 - $phvert67];
 	node 476 $Pier4 [expr $Floor7 - $phvert67];
-	node 566 $Pier5 $Floor7;	# zero-stiffness spring will be used on p-delta column
+	node 576 $Pier5 $Floor7;	# zero-stiffness spring will be used on p-delta columnS
 	# column hinges at bottom of Story 7
 	node 177 $Pier1 [expr $Floor7 - $phvert67];
 	node 178 $Pier1 [expr $Floor7 - $phvert67];
