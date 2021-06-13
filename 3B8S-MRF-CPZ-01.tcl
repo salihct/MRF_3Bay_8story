@@ -1473,15 +1473,84 @@
 	#beam springs at Floor 2
 	rotSpring2DModIKModel 4121 121 122 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	rotSpring2DModIKModel 4122 223 224 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4221 221 222 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4222 323 324 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4321 321 322 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4322 423 424 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	
+	set a_mem [expr ($n+1.0)*($Mybeam_23*($McMy-1.0)) / ($Ks_beam_23*$th_pP)];	# strain hardening ratio of spring
+	set b [expr ($a_mem)/(1.0+$n*(1.0-$a_mem))];								# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: there is mistake in Eqn B.5)
 	#beam springs at Floor 3
 	rotSpring2DModIKModel 4131 131 132 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	rotSpring2DModIKModel 4132 233 234 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4231 231 232 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4232 333 334 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4331 331 332 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4332 433 434 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem [expr ($n+1.0)*($Mybeam_45*($McMy-1.0)) / ($Ks_beam_45*$th_pP)];	# strain hardening ratio of spring
+	set b [expr ($a_mem)/(1.0+$n*(1.0-$a_mem))];								# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: there is mistake in Eqn B.5)
 	#beam springs at Floor 4
-	rotSpring2DModIKModel 4141 141 142 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	rotSpring2DModIKModel 4142 243 244 $Ks_beam_23 $b $b $Mybeam_23 [expr -$Mybeam_23] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4141 141 142 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4142 243 244 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4241 241 242 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4242 343 344 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4341 341 342 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4342 443 444 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem [expr ($n+1.0)*($Mybeam_45*($McMy-1.0)) / ($Ks_beam_45*$th_pP)];	# strain hardening ratio of spring
+	set b [expr ($a_mem)/(1.0+$n*(1.0-$a_mem))];								# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: there is mistake in Eqn B.5)
+	#beam springs at Floor 5
+	rotSpring2DModIKModel 4151 151 152 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4152 253 254 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4251 251 252 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4252 353 354 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4351 351 352 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4352 453 454 $Ks_beam_45 $b $b $Mybeam_45 [expr -$Mybeam_45] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem [expr ($n+1.0)*($Mybeam_67*($McMy-1.0)) / ($Ks_beam_67*$th_pP)];	# strain hardening ratio of spring
+	set b [expr ($a_mem)/(1.0+$n*(1.0-$a_mem))];								# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: there is mistake in Eqn B.5)
+	#beam springs at Floor 6
+	rotSpring2DModIKModel 4161 161 162 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4162 263 264 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4261 261 262 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4262 363 364 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4361 361 362 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4362 463 464 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem [expr ($n+1.0)*($Mybeam_67*($McMy-1.0)) / ($Ks_beam_67*$th_pP)];	# strain hardening ratio of spring
+	set b [expr ($a_mem)/(1.0+$n*(1.0-$a_mem))];								# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: there is mistake in Eqn B.5)
+	#beam springs at Floor 7
+	rotSpring2DModIKModel 4171 171 172 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4172 273 274 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4271 271 272 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4272 373 374 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4371 371 372 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4372 473 474 $Ks_beam_67 $b $b $Mybeam_67 [expr -$Mybeam_67] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem [expr ($n+1.0)*($Mybeam_89*($McMy-1.0)) / ($Ks_beam_89*$th_pP)];	# strain hardening ratio of spring
+	set b [expr ($a_mem)/(1.0+$n*(1.0-$a_mem))];								# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: there is mistake in Eqn B.5)
+	#beam springs at Floor 8
+	rotSpring2DModIKModel 4181 181 182 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4182 283 284 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4281 281 282 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4282 383 384 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4381 381 382 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4382 483 484 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem [expr ($n+1.0)*($Mybeam_89*($McMy-1.0)) / ($Ks_beam_89*$th_pP)];	# strain hardening ratio of spring
+	set b [expr ($a_mem)/(1.0+$n*(1.0-$a_mem))];								# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: there is mistake in Eqn B.5)
+	#beam springs at Floor 9
+	rotSpring2DModIKModel 4191 191 192 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4192 293 294 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4291 291 292 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4292 393 394 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4391 391 392 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 4392 493 494 $Ks_beam_89 $b $b $Mybeam_89 [expr -$Mybeam_89] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
 	
 	# create region for beam springs
-	region 2 -ele 4121 4122 4131 4132 4141 4142;
+	region 2 -ele 4121 4122 4221 4222 4321 4322 4131 4132 4231 4232 4331 4332 4141 4142 4241 4242 4341 4342 4151 4152 4251 4252 4351 4352 4161 4162 4261 4262 4361 4362 4171 4172 4271 4272 4371 4372 4181 4182 4281 4282 4381 4382 4191 4192 4291 4292 4391 4392;
 	
 #define panel zone springs
 	# rotPanelZone2D creates a uniaxial material spring with a trilinear response based on the Krawinkler Model
