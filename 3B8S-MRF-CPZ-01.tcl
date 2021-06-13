@@ -1330,40 +1330,135 @@
 	set th_uN 0.4;			# ultimate rot capacity for neg loading
 	set DP 1.0;				# rate of cyclic deterioration for pos loading
 	set DN 1.0;				# rate of cyclic deterioration for neg loading
-	set a_mem [expr ($n+1.0)*($Mycol_12*($McMy-1.0)) / ($Ks_col_1*$th_pP)];	# strain hardening ratio of spring
-	set b [expr ($a_mem)/(1.0+$n*(1.0-$a_mem))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	set a_mem14 [expr ($n+1.0)*($Mycol_1412*($McMy-1.0)) / ($Ks_col_141*$th_pP)];	# strain hardening ratio of spring
+	set b14 [expr ($a_mem14)/(1.0+$n*(1.0-$a_mem14))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	set a_mem23 [expr ($n+1.0)*($Mycol_2312*($McMy-1.0)) / ($Ks_col_231*$th_pP)];	# strain hardening ratio of spring
+	set b23 [expr ($a_mem23)/(1.0+$n*(1.0-$a_mem23))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
 
 # define column springs
 	# Spring ID: "3xya", where 3 = col spring, x = Pier #, y = Story #, a = location in story
 	# "a" convention: 1 = bottom of story, 2 = top of story
 	# command: rotSpring2DModIKModel	id    ndR  ndC     K   asPos  asNeg  MyPos      MyNeg      LS    LK    LA    LD   cS   cK   cA   cD  th_p+   th_p-   th_pc+   th_pc-  Res+   Res-   th_u+   th_u-    D+     D-
 	# col springs @ bottom of Story 1 (at base)
-	rotSpring2DModIKModel 3111 11 117 $Ks_col_1 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	rotSpring2DModIKModel 3211 21 217 $Ks_col_1 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3111 11 117 $Ks_col_141 $b14 $b14 $Mycol_1412 [expr -$Mycol_1412] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3211 21 217 $Ks_col_231 $b23 $b23 $Mycol_2312 [expr -$Mycol_2312] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3311 31 317 $Ks_col_231 $b23 $b23 $Mycol_2312 [expr -$Mycol_2312] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3411 41 417 $Ks_col_141 $b14 $b14 $Mycol_1412 [expr -$Mycol_1412] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	#col springs @ top of Story 1 (below Floor 2)
-	rotSpring2DModIKModel 3112 126 125 $Ks_col_1 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	rotSpring2DModIKModel 3212 226 225 $Ks_col_1 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3112 126 125 $Ks_col_141 $b14 $b14 $Mycol_1412 [expr -$Mycol_1412] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3212 226 225 $Ks_col_231 $b23 $b23 $Mycol_2312 [expr -$Mycol_2312] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3312 326 325 $Ks_col_231 $b23 $b23 $Mycol_2312 [expr -$Mycol_2312] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3412 426 425 $Ks_col_141 $b14 $b14 $Mycol_1412 [expr -$Mycol_1412] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 
 	# recompute strain hardening since Story 2 is not the same height as Story 1
-	set a_mem [expr ($n+1.0)*($Mycol_12*($McMy-1.0)) / ($Ks_col_2*$th_pP)];	# strain hardening ratio of spring
-	set b [expr ($a_mem)/(1.0+$n*(1.0-$a_mem))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: there is mistake in Eqn B.5)
-	# col springs @ bottom of Story 2 (above Floor 2)
-	rotSpring2DModIKModel 3121 127 128 $Ks_col_2 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	rotSpring2DModIKModel 3221 227 228 $Ks_col_2 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	set a_mem14 [expr ($n+1.0)*($Mycol_1412*($McMy-1.0)) / ($Ks_col_142*$th_pP)];	# strain hardening ratio of spring
+	set b14 [expr ($a_mem14)/(1.0+$n*(1.0-$a_mem14))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	set a_mem23 [expr ($n+1.0)*($Mycol_2312*($McMy-1.0)) / ($Ks_col_232*$th_pP)];	# strain hardening ratio of spring
+	set b23 [expr ($a_mem23)/(1.0+$n*(1.0-$a_mem23))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	# col springs @ bottom of Story 2 (at base)
+	rotSpring2DModIKModel 3121 127 128 $Ks_col_142 $b14 $b14 $Mycol_1412 [expr -$Mycol_1412] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3221 227 228 $Ks_col_232 $b23 $b23 $Mycol_2312 [expr -$Mycol_2312] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3321 327 328 $Ks_col_232 $b23 $b23 $Mycol_2312 [expr -$Mycol_2312] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3421 427 428 $Ks_col_142 $b14 $b14 $Mycol_1412 [expr -$Mycol_1412] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	#col springs @ top of Story 2 (below Floor 3)
-	rotSpring2DModIKModel 3122 136 135 $Ks_col_2 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	rotSpring2DModIKModel 3222 236 235 $Ks_col_2 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3122 136 135 $Ks_col_142 $b14 $b14 $Mycol_1412 [expr -$Mycol_1412] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3222 236 235 $Ks_col_232 $b23 $b23 $Mycol_2312 [expr -$Mycol_2312] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3322 336 335 $Ks_col_232 $b23 $b23 $Mycol_2312 [expr -$Mycol_2312] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3422 436 435 $Ks_col_142 $b14 $b14 $Mycol_1412 [expr -$Mycol_1412] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
 	
-	# col springs @ bottom of Story 3 (above Floor 3)
-	rotSpring2DModIKModel 3131 137 138 $Ks_col_3 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	rotSpring2DModIKModel 3231 237 238 $Ks_col_3 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	set a_mem14 [expr ($n+1.0)*($Mycol_1434*($McMy-1.0)) / ($Ks_col_143*$th_pP)];	# strain hardening ratio of spring
+	set b14 [expr ($a_mem14)/(1.0+$n*(1.0-$a_mem14))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	set a_mem23 [expr ($n+1.0)*($Mycol_2334*($McMy-1.0)) / ($Ks_col_233*$th_pP)];	# strain hardening ratio of spring
+	set b23 [expr ($a_mem23)/(1.0+$n*(1.0-$a_mem23))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	# col springs @ bottom of Story 3 (at base)
+	rotSpring2DModIKModel 3131 137 138 $Ks_col_143 $b14 $b14 $Mycol_1434 [expr -$Mycol_1434] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3231 237 238 $Ks_col_233 $b23 $b23 $Mycol_2334 [expr -$Mycol_2334] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3331 337 338 $Ks_col_233 $b23 $b23 $Mycol_2334 [expr -$Mycol_2334] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3431 437 438 $Ks_col_143 $b14 $b14 $Mycol_1434 [expr -$Mycol_1434] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	#col springs @ top of Story 3 (below Floor 4)
-	rotSpring2DModIKModel 3132 146 145 $Ks_col_3 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	rotSpring2DModIKModel 3232 246 245 $Ks_col_3 $b $b $Mycol_12 [expr -$Mycol_12] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
-	
+	rotSpring2DModIKModel 3132 146 145 $Ks_col_143 $b14 $b14 $Mycol_14! [expr -$Mycol_14!] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3232 246 245 $Ks_col_233 $b23 $b23 $Mycol_23! [expr -$Mycol_23!] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3332 346 345 $Ks_col_233 $b23 $b23 $Mycol_23! [expr -$Mycol_23!] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3432 446 445 $Ks_col_143 $b14 $b14 $Mycol_14! [expr -$Mycol_14!] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem14 [expr ($n+1.0)*($Mycol_1434*($McMy-1.0)) / ($Ks_col_144*$th_pP)];	# strain hardening ratio of spring
+	set b14 [expr ($a_mem14)/(1.0+$n*(1.0-$a_mem14))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	set a_mem23 [expr ($n+1.0)*($Mycol_2334*($McMy-1.0)) / ($Ks_col_234*$th_pP)];	# strain hardening ratio of spring
+	set b23 [expr ($a_mem23)/(1.0+$n*(1.0-$a_mem23))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	# col springs @ bottom of Story 4 (at base)
+	rotSpring2DModIKModel 3141 147 148 $Ks_col_144 $b14 $b14 $Mycol_1434 [expr -$Mycol_1434] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3241 247 248 $Ks_col_234 $b23 $b23 $Mycol_2334 [expr -$Mycol_2334] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3341 347 348 $Ks_col_234 $b23 $b23 $Mycol_2334 [expr -$Mycol_2334] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3441 447 448 $Ks_col_144 $b14 $b14 $Mycol_1434 [expr -$Mycol_1434] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	#col springs @ top of Story 4 (below Floor 5)
+	rotSpring2DModIKModel 3142 156 155 $Ks_col_144 $b14 $b14 $Mycol_1434 [expr -$Mycol_1434] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3242 256 255 $Ks_col_234 $b23 $b23 $Mycol_2334 [expr -$Mycol_2334] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3342 356 355 $Ks_col_234 $b23 $b23 $Mycol_2334 [expr -$Mycol_2334] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3442 456 455 $Ks_col_144 $b14 $b14 $Mycol_1434 [expr -$Mycol_1434] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem14 [expr ($n+1.0)*($Mycol_1456*($McMy-1.0)) / ($Ks_col_145*$th_pP)];	# strain hardening ratio of spring
+	set b14 [expr ($a_mem14)/(1.0+$n*(1.0-$a_mem14))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	set a_mem23 [expr ($n+1.0)*($Mycol_2356*($McMy-1.0)) / ($Ks_col_235*$th_pP)];	# strain hardening ratio of spring
+	set b23 [expr ($a_mem23)/(1.0+$n*(1.0-$a_mem23))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	# col springs @ bottom of Story 5 (at base)
+	rotSpring2DModIKModel 3151 157 158 $Ks_col_145 $b14 $b14 $Mycol_1456 [expr -$Mycol_1456] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3251 257 258 $Ks_col_235 $b23 $b23 $Mycol_2356 [expr -$Mycol_2356] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3351 357 358 $Ks_col_235 $b23 $b23 $Mycol_2356 [expr -$Mycol_2356] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3451 457 458 $Ks_col_145 $b14 $b14 $Mycol_1456 [expr -$Mycol_1456] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	#col springs @ top of Story 5 (below Floor 6)
+	rotSpring2DModIKModel 3152 166 165 $Ks_col_145 $b14 $b14 $Mycol_1456 [expr -$Mycol_1456] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3252 266 265 $Ks_col_235 $b23 $b23 $Mycol_2356 [expr -$Mycol_2356] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3352 366 365 $Ks_col_235 $b23 $b23 $Mycol_2356 [expr -$Mycol_2356] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3452 466 465 $Ks_col_145 $b14 $b14 $Mycol_1456 [expr -$Mycol_1456] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem14 [expr ($n+1.0)*($Mycol_1456*($McMy-1.0)) / ($Ks_col_146*$th_pP)];	# strain hardening ratio of spring
+	set b14 [expr ($a_mem14)/(1.0+$n*(1.0-$a_mem14))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	set a_mem23 [expr ($n+1.0)*($Mycol_2356*($McMy-1.0)) / ($Ks_col_236*$th_pP)];	# strain hardening ratio of spring
+	set b23 [expr ($a_mem23)/(1.0+$n*(1.0-$a_mem23))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	# col springs @ bottom of Story 6 (at base)
+	rotSpring2DModIKModel 3161 167 168 $Ks_col_146 $b14 $b14 $Mycol_1456 [expr -$Mycol_1456] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3261 267 268 $Ks_col_236 $b23 $b23 $Mycol_2356 [expr -$Mycol_2356] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3361 367 368 $Ks_col_236 $b23 $b23 $Mycol_2356 [expr -$Mycol_2356] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3461 467 468 $Ks_col_146 $b14 $b14 $Mycol_1456 [expr -$Mycol_1456] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	#col springs @ top of Story 6 (below Floor 7)
+	rotSpring2DModIKModel 3162 176 175 $Ks_col_146 $b14 $b14 $Mycol_1456 [expr -$Mycol_1456] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3262 276 275 $Ks_col_236 $b23 $b23 $Mycol_2356 [expr -$Mycol_2356] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3362 376 375 $Ks_col_236 $b23 $b23 $Mycol_2356 [expr -$Mycol_2356] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3462 476 475 $Ks_col_146 $b14 $b14 $Mycol_1456 [expr -$Mycol_1456] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem14 [expr ($n+1.0)*($Mycol_1478*($McMy-1.0)) / ($Ks_col_147*$th_pP)];	# strain hardening ratio of spring
+	set b14 [expr ($a_mem14)/(1.0+$n*(1.0-$a_mem14))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	set a_mem23 [expr ($n+1.0)*($Mycol_2378*($McMy-1.0)) / ($Ks_col_237*$th_pP)];	# strain hardening ratio of spring
+	set b23 [expr ($a_mem23)/(1.0+$n*(1.0-$a_mem23))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	# col springs @ bottom of Story 7 (at base)
+	rotSpring2DModIKModel 3171 177 178 $Ks_col_147 $b14 $b14 $Mycol_1478 [expr -$Mycol_1478] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3271 277 278 $Ks_col_237 $b23 $b23 $Mycol_2378 [expr -$Mycol_2378] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3371 377 378 $Ks_col_237 $b23 $b23 $Mycol_2378 [expr -$Mycol_2378] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3471 477 478 $Ks_col_147 $b14 $b14 $Mycol_1478 [expr -$Mycol_1478] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	#col springs @ top of Story 7 (below Floor 8)
+	rotSpring2DModIKModel 3172 186 185 $Ks_col_147 $b14 $b14 $Mycol_1478 [expr -$Mycol_1478] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3272 286 285 $Ks_col_237 $b23 $b23 $Mycol_2378 [expr -$Mycol_2378] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3372 386 385 $Ks_col_237 $b23 $b23 $Mycol_2378 [expr -$Mycol_2378] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3472 486 485 $Ks_col_147 $b14 $b14 $Mycol_1478 [expr -$Mycol_1478] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+
+	set a_mem14 [expr ($n+1.0)*($Mycol_1478*($McMy-1.0)) / ($Ks_col_148*$th_pP)];	# strain hardening ratio of spring
+	set b14 [expr ($a_mem14)/(1.0+$n*(1.0-$a_mem14))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	set a_mem23 [expr ($n+1.0)*($Mycol_2378*($McMy-1.0)) / ($Ks_col_238*$th_pP)];	# strain hardening ratio of spring
+	set b23 [expr ($a_mem23)/(1.0+$n*(1.0-$a_mem23))];							# modified strain hardening ratio of spring (Ibarra & Krawinkler 2005, note: Eqn B.5 is incorrect)
+	# col springs @ bottom of Story 8 (at base)
+	rotSpring2DModIKModel 3181 187 188 $Ks_col_148 $b14 $b14 $Mycol_1478 [expr -$Mycol_1478] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3281 287 288 $Ks_col_238 $b23 $b23 $Mycol_2378 [expr -$Mycol_2378] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3381 387 388 $Ks_col_238 $b23 $b23 $Mycol_2378 [expr -$Mycol_2378] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3481 487 488 $Ks_col_148 $b14 $b14 $Mycol_1478 [expr -$Mycol_1478] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	#col springs @ top of Story 8 (below Floor 9)
+	rotSpring2DModIKModel 3182 196 195 $Ks_col_148 $b14 $b14 $Mycol_1478 [expr -$Mycol_1478] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3282 296 295 $Ks_col_238 $b23 $b23 $Mycol_2378 [expr -$Mycol_2378] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3382 396 395 $Ks_col_238 $b23 $b23 $Mycol_2378 [expr -$Mycol_2378] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
+	rotSpring2DModIKModel 3482 496 495 $Ks_col_148 $b14 $b14 $Mycol_1478 [expr -$Mycol_1478] $LS $LK $LA $LD $cS $cK $cA $cD $th_pP $th_pN $th_pcP $th_pcN $ResP $ResN $th_uP $th_uN $DP $DN;
 	# create region for frame column springs
 	# command: region $regionID -ele $ele_1_ID $ele_2_ID...
-	region 1 -ele 3111 3211 3112 3212 3121 3221 3122 3222 3131 3231 3132 3232;
+	region 1 -ele 3111 3211 3311 3411 3112 3212 3312 3412 3121 3221 3321 3421 3122 3222 3322 3422 3131 3231 3331 3431 3132 3232 3332 3432 3141 3241 3341 3441 3142 3242 3342 3442 3151 3251 3351 3451 3152 3252 3352 3452 3161 3261 3361 3461 3162 3262 3362 3462 3171 3271 3371 3471 3172 3272 3372 3472 3181 3281 3381 3481 3182 3282 3382 3482 ;
 	
 # define beam springs
 	# Spring ID: "4xya", where 4 = beam spring, x = Bay #, y = Floor #, a = location in bay
