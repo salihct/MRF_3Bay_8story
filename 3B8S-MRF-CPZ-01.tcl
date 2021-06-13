@@ -1561,16 +1561,62 @@
 	set Ry 1.2; 	# expected yield strength multiplier
 	set as_PZ 0.03; # strain hardening of panel zones
 	# Spring ID: "4xy00" where 4 = panel zone spring, x = Pier #, y = Floor #
-	#2nd Floor PZ springs
+
+	#Floor 2 PZ springs
 	#             ElemID  ndR  ndC  E   Fy   dc       bf_c        tf_c       tp        db       Ry   as
-	rotPanelZone2D 41200 1203 1204 $Es $Fy $dcol_12 $bfcol_12 $tfcol_12 $twcol_12 $dbeam_23 $Ry $as_PZ;
-	rotPanelZone2D 42200 2203 2204 $Es $Fy $dcol_12 $bfcol_12 $tfcol_12 $twcol_12 $dbeam_23 $Ry $as_PZ;
-	#3rd Floor PZ springs
-	rotPanelZone2D 41300 1303 1304 $Es $Fy $dcol_12 $bfcol_12 $tfcol_12 $twcol_12 $dbeam_23 $Ry $as_PZ;
-	rotPanelZone2D 42300 2303 2304 $Es $Fy $dcol_12 $bfcol_12 $tfcol_12 $twcol_12 $dbeam_23 $Ry $as_PZ;
-	#4th Floor PZ springs
-	rotPanelZone2D 41400 1403 1404 $Es $Fy $dcol_12 $bfcol_12 $tfcol_12 $twcol_12 $dbeam_23 $Ry $as_PZ;
-	rotPanelZone2D 42400 2403 2404 $Es $Fy $dcol_12 $bfcol_12 $tfcol_12 $twcol_12 $dbeam_23 $Ry $as_PZ;
+	rotPanelZone2D 41200 1203 1204 $Es $Fy $dcol_1412 $bfcol_1412 $tfcol_1412 $twcol_1412 $dbeam_23 $Ry $as_PZ;
+	rotPanelZone2D 42200 2203 2204 $Es $Fy $dcol_2312 $bfcol_2312 $tfcol_2312 $twcol_2312 $dbeam_23 $Ry $as_PZ;
+	rotPanelZone2D 43200 3203 3204 $Es $Fy $dcol_2312 $bfcol_2312 $tfcol_2312 $twcol_2312 $dbeam_23 $Ry $as_PZ;
+	rotPanelZone2D 44200 4203 4204 $Es $Fy $dcol_1412 $bfcol_1412 $tfcol_1412 $twcol_1412 $dbeam_23 $Ry $as_PZ;
+
+	#Floor 3 PZ springs
+	#             ElemID  ndR  ndC  E   Fy   dc       bf_c        tf_c       tp        db       Ry   as
+	rotPanelZone2D 41300 1303 1304 $Es $Fy $dcol_1412 $bfcol_1412 $tfcol_1412 $twcol_1412 $dbeam_23 $Ry $as_PZ;
+	rotPanelZone2D 42300 2303 2304 $Es $Fy $dcol_2312 $bfcol_2312 $tfcol_2312 $twcol_2312 $dbeam_23 $Ry $as_PZ;
+	rotPanelZone2D 43300 3303 3304 $Es $Fy $dcol_2312 $bfcol_2312 $tfcol_2312 $twcol_2312 $dbeam_23 $Ry $as_PZ;
+	rotPanelZone2D 44300 4303 4304 $Es $Fy $dcol_1412 $bfcol_1412 $tfcol_1412 $twcol_1412 $dbeam_23 $Ry $as_PZ;
+
+	#Floor 4 PZ springs
+	#             ElemID  ndR  ndC  E   Fy   dc       bf_c        tf_c       tp        db       Ry   as
+	rotPanelZone2D 41400 1403 1404 $Es $Fy $dcol_1434 $bfcol_1434 $tfcol_1434 $twcol_1434 $dbeam_45 $Ry $as_PZ;
+	rotPanelZone2D 42400 2403 2404 $Es $Fy $dcol_2334 $bfcol_2334 $tfcol_2334 $twcol_2334 $dbeam_45 $Ry $as_PZ;
+	rotPanelZone2D 43400 3403 3404 $Es $Fy $dcol_2334 $bfcol_2334 $tfcol_2334 $twcol_2334 $dbeam_45 $Ry $as_PZ;
+	rotPanelZone2D 44400 4403 4404 $Es $Fy $dcol_1434 $bfcol_1434 $tfcol_1434 $twcol_1434 $dbeam_45 $Ry $as_PZ;
+
+	#Floor 5 PZ springs
+	#             ElemID  ndR  ndC  E   Fy   dc       bf_c        tf_c       tp        db       Ry   as
+	rotPanelZone2D 41500 1503 1504 $Es $Fy $dcol_1434 $bfcol_1434 $tfcol_1434 $twcol_1434 $dbeam_45 $Ry $as_PZ;
+	rotPanelZone2D 42500 2503 2504 $Es $Fy $dcol_2334 $bfcol_2334 $tfcol_2334 $twcol_2334 $dbeam_45 $Ry $as_PZ;
+	rotPanelZone2D 43500 3503 3504 $Es $Fy $dcol_2334 $bfcol_2334 $tfcol_2334 $twcol_2334 $dbeam_45 $Ry $as_PZ;
+	rotPanelZone2D 44500 4503 4504 $Es $Fy $dcol_1434 $bfcol_1434 $tfcol_1434 $twcol_1434 $dbeam_45 $Ry $as_PZ;
+
+	#Floor 6 PZ springs
+	#             ElemID  ndR  ndC  E   Fy   dc       bf_c        tf_c       tp        db       Ry   as
+	rotPanelZone2D 41600 1603 1604 $Es $Fy $dcol_1456 $bfcol_1456 $tfcol_1456 $twcol_1456 $dbeam_67 $Ry $as_PZ;
+	rotPanelZone2D 42600 2603 2604 $Es $Fy $dcol_2356 $bfcol_2356 $tfcol_2356 $twcol_2356 $dbeam_67 $Ry $as_PZ;
+	rotPanelZone2D 43600 3603 3604 $Es $Fy $dcol_2356 $bfcol_2356 $tfcol_2356 $twcol_2356 $dbeam_67 $Ry $as_PZ;
+	rotPanelZone2D 44600 4603 4604 $Es $Fy $dcol_1456 $bfcol_1456 $tfcol_1456 $twcol_1456 $dbeam_67 $Ry $as_PZ;
+
+	#Floor 7 PZ springs
+	#             ElemID  ndR  ndC  E   Fy   dc       bf_c        tf_c       tp        db       Ry   as
+	rotPanelZone2D 41700 1703 1704 $Es $Fy $dcol_1456 $bfcol_1456 $tfcol_1456 $twcol_1456 $dbeam_67 $Ry $as_PZ;
+	rotPanelZone2D 42700 2703 2704 $Es $Fy $dcol_2356 $bfcol_2356 $tfcol_2356 $twcol_2356 $dbeam_67 $Ry $as_PZ;
+	rotPanelZone2D 43700 3703 3704 $Es $Fy $dcol_2356 $bfcol_2356 $tfcol_2356 $twcol_2356 $dbeam_67 $Ry $as_PZ;
+	rotPanelZone2D 44700 4703 4704 $Es $Fy $dcol_1456 $bfcol_1456 $tfcol_1456 $twcol_1456 $dbeam_67 $Ry $as_PZ;
+
+	#Floor 8 PZ springs
+	#             ElemID  ndR  ndC  E   Fy   dc       bf_c        tf_c       tp        db       Ry   as
+	rotPanelZone2D 41800 1803 1804 $Es $Fy $dcol_1478 $bfcol_1478 $tfcol_1478 $twcol_1478 $dbeam_89 $Ry $as_PZ;
+	rotPanelZone2D 42800 2803 2804 $Es $Fy $dcol_2378 $bfcol_2378 $tfcol_2378 $twcol_2378 $dbeam_89 $Ry $as_PZ;
+	rotPanelZone2D 43800 3803 3804 $Es $Fy $dcol_2378 $bfcol_2378 $tfcol_2378 $twcol_2378 $dbeam_89 $Ry $as_PZ;
+	rotPanelZone2D 44800 4803 4804 $Es $Fy $dcol_1478 $bfcol_1478 $tfcol_1478 $twcol_1478 $dbeam_89 $Ry $as_PZ;
+
+	#Floor 9 PZ springs
+	#             ElemID  ndR  ndC  E   Fy   dc       bf_c        tf_c       tp        db       Ry   as
+	rotPanelZone2D 41900 1903 1904 $Es $Fy $dcol_1478 $bfcol_1478 $tfcol_1478 $twcol_1478 $dbeam_89 $Ry $as_PZ;
+	rotPanelZone2D 42900 2903 2904 $Es $Fy $dcol_2378 $bfcol_2378 $tfcol_2378 $twcol_2378 $dbeam_89 $Ry $as_PZ;
+	rotPanelZone2D 43900 3903 3904 $Es $Fy $dcol_2378 $bfcol_2378 $tfcol_2378 $twcol_2378 $dbeam_89 $Ry $as_PZ;
+	rotPanelZone2D 44900 4903 4904 $Es $Fy $dcol_1478 $bfcol_1478 $tfcol_1478 $twcol_1478 $dbeam_89 $Ry $as_PZ;
 	
 # define p-delta column spring: zero-stiffness elastic spring	
 	#Spring ID: "5xya" where 5 = leaning column spring, x = Pier #, y = Story #, a = location in story
