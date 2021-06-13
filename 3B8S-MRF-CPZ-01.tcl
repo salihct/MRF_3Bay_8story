@@ -1226,11 +1226,11 @@
 	element truss  642 4205 52 $Arigid $TrussMatID;	# Floor 2
 	element truss  643 4305 53 $Arigid $TrussMatID;	# Floor 3
 	element truss  644 4405 54 $Arigid $TrussMatID;	# Floor 4
-	element truss  645 4205 55 $Arigid $TrussMatID;	# Floor 5
-	element truss  646 4305 56 $Arigid $TrussMatID;	# Floor 6
-	element truss  647 4405 57 $Arigid $TrussMatID;	# Floor 7
-	element truss  648 4205 58 $Arigid $TrussMatID;	# Floor 8
-	element truss  649 4305 59 $Arigid $TrussMatID;	# Floor 9
+	element truss  645 4505 55 $Arigid $TrussMatID;	# Floor 5
+	element truss  646 4605 56 $Arigid $TrussMatID;	# Floor 6
+	element truss  647 4705 57 $Arigid $TrussMatID;	# Floor 7
+	element truss  648 4805 58 $Arigid $TrussMatID;	# Floor 8
+	element truss  649 4905 59 $Arigid $TrussMatID;	# Floor 9
 	
 	# p-delta columns
 	# eleID convention:  7xy, 7 = p-delta columns, x = Pier #, y = Story #
