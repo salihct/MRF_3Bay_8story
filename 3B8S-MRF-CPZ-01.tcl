@@ -1231,15 +1231,26 @@
 	# rigid links
 	# command: element truss $eleID $iNode $jNode $A $materialID
 	# eleID convention:  6xy, 6 = truss link, x = Bay #, y = Floor #
-	element truss  622 2205 32 $Arigid $TrussMatID;	# Floor 2
-	element truss  623 2305 33 $Arigid $TrussMatID;	# Floor 3
-	element truss  624 2405 34 $Arigid $TrussMatID;	# Floor 4
+	element truss  642 4205 52 $Arigid $TrussMatID;	# Floor 2
+	element truss  643 4305 53 $Arigid $TrussMatID;	# Floor 3
+	element truss  644 4405 54 $Arigid $TrussMatID;	# Floor 4
+	element truss  645 4205 55 $Arigid $TrussMatID;	# Floor 5
+	element truss  646 4305 56 $Arigid $TrussMatID;	# Floor 6
+	element truss  647 4405 57 $Arigid $TrussMatID;	# Floor 7
+	element truss  648 4205 58 $Arigid $TrussMatID;	# Floor 8
+	element truss  649 4305 59 $Arigid $TrussMatID;	# Floor 9
 	
 	# p-delta columns
 	# eleID convention:  7xy, 7 = p-delta columns, x = Pier #, y = Story #
-	element elasticBeamColumn  731  31  326 $Arigid $Es $Irigid $PDeltaTransf;	# Story 1
-	element elasticBeamColumn  732  327 336 $Arigid $Es $Irigid $PDeltaTransf;	# Story 2
-	element elasticBeamColumn  733  337 346 $Arigid $Es $Irigid $PDeltaTransf;	# Story 3
+	element elasticBeamColumn  751  51  526 $Arigid $Es $Irigid $PDeltaTransf;	# Story 1
+	element elasticBeamColumn  752  527 536 $Arigid $Es $Irigid $PDeltaTransf;	# Story 2
+	element elasticBeamColumn  753  537 546 $Arigid $Es $Irigid $PDeltaTransf;	# Story 3
+	element elasticBeamColumn  751  547 556 $Arigid $Es $Irigid $PDeltaTransf;	# Story 4
+	element elasticBeamColumn  752  557 566 $Arigid $Es $Irigid $PDeltaTransf;	# Story 5
+	element elasticBeamColumn  753  567 576 $Arigid $Es $Irigid $PDeltaTransf;	# Story 6
+	element elasticBeamColumn  751  577 586 $Arigid $Es $Irigid $PDeltaTransf;	# Story 7
+	element elasticBeamColumn  752  587 596 $Arigid $Es $Irigid $PDeltaTransf;	# Story 8
+	
 	
 # define elastic panel zone elements (assume rigid)
 	# elemPanelZone2D creates 8 elastic elements that form a rectangular panel zone
@@ -1252,10 +1263,43 @@
 	# elemPanelZone2D eleID  nodeR E  A_PZ I_PZ transfTag
 	elemPanelZone2D   500121 1201 $Es $Apz $Ipz $PDeltaTransf;	# Pier 1, Floor 2
 	elemPanelZone2D   500221 2201 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 2
+	elemPanelZone2D   500321 3201 $Es $Apz $Ipz $PDeltaTransf;	# Pier 3, Floor 2
+	elemPanelZone2D   500421 4201 $Es $Apz $Ipz $PDeltaTransf;	# Pier 4, Floor 2
+
 	elemPanelZone2D   500131 1301 $Es $Apz $Ipz $PDeltaTransf;	# Pier 1, Floor 3
 	elemPanelZone2D   500231 2301 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 3
+	elemPanelZone2D   500331 3301 $Es $Apz $Ipz $PDeltaTransf;	# Pier 3, Floor 3
+	elemPanelZone2D   500431 4301 $Es $Apz $Ipz $PDeltaTransf;	# Pier 4, Floor 3
+
 	elemPanelZone2D   500141 1401 $Es $Apz $Ipz $PDeltaTransf;	# Pier 1, Floor 4
 	elemPanelZone2D   500241 2401 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 4
+	elemPanelZone2D   500341 3401 $Es $Apz $Ipz $PDeltaTransf;	# Pier 3, Floor 4
+	elemPanelZone2D   500441 4401 $Es $Apz $Ipz $PDeltaTransf;	# Pier 4, Floor 4
+
+	elemPanelZone2D   500151 1501 $Es $Apz $Ipz $PDeltaTransf;	# Pier 1, Floor 5
+	elemPanelZone2D   500251 2501 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 5
+	elemPanelZone2D   500351 3501 $Es $Apz $Ipz $PDeltaTransf;	# Pier 3, Floor 5
+	elemPanelZone2D   500451 4501 $Es $Apz $Ipz $PDeltaTransf;	# Pier 4, Floor 5
+
+	elemPanelZone2D   500161 1601 $Es $Apz $Ipz $PDeltaTransf;	# Pier 1, Floor 6
+	elemPanelZone2D   500261 2601 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 6
+	elemPanelZone2D   500361 3601 $Es $Apz $Ipz $PDeltaTransf;	# Pier 3, Floor 6
+	elemPanelZone2D   500461 4601 $Es $Apz $Ipz $PDeltaTransf;	# Pier 4, Floor 6
+
+	elemPanelZone2D   500171 1701 $Es $Apz $Ipz $PDeltaTransf;	# Pier 1, Floor 7
+	elemPanelZone2D   500271 2701 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 7
+	elemPanelZone2D   500371 3701 $Es $Apz $Ipz $PDeltaTransf;	# Pier 3, Floor 7
+	elemPanelZone2D   500471 4701 $Es $Apz $Ipz $PDeltaTransf;	# Pier 4, Floor 7
+
+	elemPanelZone2D   500181 1801 $Es $Apz $Ipz $PDeltaTransf;	# Pier 1, Floor 8
+	elemPanelZone2D   500281 2801 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 8
+	elemPanelZone2D   500381 3801 $Es $Apz $Ipz $PDeltaTransf;	# Pier 3, Floor 8
+	elemPanelZone2D   500481 4801 $Es $Apz $Ipz $PDeltaTransf;	# Pier 4, Floor 8
+
+	elemPanelZone2D   500191 1901 $Es $Apz $Ipz $PDeltaTransf;	# Pier 1, Floor 9
+	elemPanelZone2D   500291 2901 $Es $Apz $Ipz $PDeltaTransf;	# Pier 2, Floor 9
+	elemPanelZone2D   500391 3901 $Es $Apz $Ipz $PDeltaTransf;	# Pier 3, Floor 9
+	elemPanelZone2D   500491 4901 $Es $Apz $Ipz $PDeltaTransf;	# Pier 4, Floor 9
 	
 # display the model with the node numbers
 	DisplayModel2D NodeNumbers;
