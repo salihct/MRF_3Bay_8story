@@ -1553,18 +1553,25 @@
 	recorder Drift -file $dataDir/Drift-Story1.out -time -iNode 11 -jNode 1205 -dof 1 -perpDirn 2;
 	recorder Drift -file $dataDir/Drift-Story2.out -time -iNode 1205 -jNode 1305 -dof 1 -perpDirn 2;
 	recorder Drift -file $dataDir/Drift-Story3.out -time -iNode 1305 -jNode 1405 -dof 1 -perpDirn 2; #need to check??????
-	recorder Drift -file $dataDir/Drift-Roof.out -time -iNode 11 -jNode 1405 -dof 1 -perpDirn 2; #changed from 1305
+	recorder Drift -file $dataDir/Drift-Story4.out -time -iNode 1405 -jNode 1505 -dof 1 -perpDirn 2;
+	recorder Drift -file $dataDir/Drift-Story5.out -time -iNode 1505 -jNode 1605 -dof 1 -perpDirn 2;
+	recorder Drift -file $dataDir/Drift-Story6.out -time -iNode 1605 -jNode 1705 -dof 1 -perpDirn 2;
+	recorder Drift -file $dataDir/Drift-Story7.out -time -iNode 1705 -jNode 1805 -dof 1 -perpDirn 2;
+	recorder Drift -file $dataDir/Drift-Story8.out -time -iNode 1805 -jNode 1905 -dof 1 -perpDirn 2;
+	recorder Drift -file $dataDir/Drift-Roof.out -time -iNode 11 -jNode 1905 -dof 1 -perpDirn 2; #changed from 1305
 	
 # record floor displacements	
-	recorder Node -file $dataDir/Disp.out -time -node 1205 1405 -dof 1 disp; #changed from 1305
+	recorder Node -file $dataDir/Disp.out -time -node 1205 1905 -dof 1 disp; #changed from 1305
 	
 # record base shear reactions
-	recorder Node -file $dataDir/Vbase.out -time -node 117 217 31 -dof 1 reaction;
+	recorder Node -file $dataDir/Vbase.out -time -node 117 417 51 -dof 1 reaction;
 	
 # record story 1 column forces in global coordinates 
 	recorder Element -file $dataDir/Fcol111.out -time -ele 111 force;
 	recorder Element -file $dataDir/Fcol121.out -time -ele 121 force;
-	recorder Element -file $dataDir/Fcol731.out -time -ele 731 force;
+	recorder Element -file $dataDir/Fcol131.out -time -ele 131 force;
+	recorder Element -file $dataDir/Fcol141.out -time -ele 141 force;
+	recorder Element -file $dataDir/Fcol751.out -time -ele 751 force;
 	
 # record response history of all frame column springs (one file for moment, one for rotation)
 	recorder Element -file $dataDir/MRFcol-Mom-Hist.out -time -region 1 force;
@@ -1586,17 +1593,56 @@
 ############################################################################
 if {$analysisType == "pushover"} { 
 	puts "Running Pushover..."
-# assign lateral loads and create load pattern:  use ASCE 7-10 distribution
-	set lat2 15;	# force on each beam-column joint in Floor 2
-	set lat3 30;	# force on each beam-column joint in Floor 3
-	set lat4 40;	# force on each beam-column joint in Floor 4				
+# assign lateral loads and create load pattern:  use ASCE 7-10 distribution 
+	set lat2 3.72;	# force on each beam-column joint in Floor 2
+	set lat3 8.599;	# force on each beam-column joint in Floor 3
+	set lat4 14.33;	# force on each beam-column joint in Floor 4
+	set lat5 20.73;	# force on each beam-column joint in Floor 5
+	set lat6 27.67;	# force on each beam-column joint in Floor 6
+	set lat7 35.09;	# force on each beam-column joint in Floor 7
+	set lat8 42.92;	# force on each beam-column joint in Floor 8
+	set lat9 51.14;	# force on each beam-column joint in Floor 9
+					
 	pattern Plain 200 Linear {			
 					load 1205 $lat2 0.0 0.0;
 					load 2205 $lat2 0.0 0.0;
+					load 3205 $lat2 0.0 0.0;
+					load 4205 $lat2 0.0 0.0;
+					
 					load 1305 $lat3 0.0 0.0;
-					load 2305 $lat3 0.0 0.0;  
+					load 2305 $lat3 0.0 0.0;
+					load 3305 $lat3 0.0 0.0;
+					load 4305 $lat3 0.0 0.0;
+
 					load 1405 $lat4 0.0 0.0;
 					load 2405 $lat4 0.0 0.0;
+					load 3405 $lat4 0.0 0.0;
+					load 4405 $lat4 0.0 0.0;
+
+					load 1505 $lat5 0.0 0.0;
+					load 2505 $lat5 0.0 0.0;
+					load 3505 $lat5 0.0 0.0;
+					load 4505 $lat5 0.0 0.0;
+
+					load 1605 $lat6 0.0 0.0;
+					load 2605 $lat6 0.0 0.0;
+					load 3605 $lat6 0.0 0.0;
+					load 4605 $lat6 0.0 0.0;
+
+					load 1705 $lat7 0.0 0.0;
+					load 2705 $lat7 0.0 0.0;
+					load 3705 $lat7 0.0 0.0;
+					load 4705 $lat7 0.0 0.0;
+
+					load 1805 $lat8 0.0 0.0;
+					load 2805 $lat8 0.0 0.0;
+					load 3805 $lat8 0.0 0.0;
+					load 4805 $lat8 0.0 0.0;
+
+					load 1905 $lat9 0.0 0.0;
+					load 2905 $lat9 0.0 0.0;
+					load 3905 $lat9 0.0 0.0;
+					load 4905 $lat9 0.0 0.0;
 	}
 	
 # display deformed shape:
@@ -1604,7 +1650,7 @@ if {$analysisType == "pushover"} {
 	DisplayModel2D DeformedShape $ViewScale ;	# display deformed shape, the scaling factor needs to be adjusted for each model
 
 # displacement parameters
-	set IDctrlNode 1405;				# node where disp is read for disp control ///////// changed to 1305 to 1405
+	set IDctrlNode 1905;				# node where disp is read for disp control ///////// changed to 1305 to 1405
 	set IDctrlDOF 1;					# degree of freedom read for disp control (1 = x displacement)
 	set Dmax [expr 0.1*$HBuilding];		# maximum displacement of pushover: 10% roof drift
 	set Dincr [expr 0.01];				# displacement increment
