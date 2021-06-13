@@ -1010,7 +1010,7 @@
 	set Abeam_89  14.7;		# cross-sectional area (full section properties)
 	set Ibeam_89  800.0;	# moment of inertia  (full section properties)
 	set Mybeam_89 5555.0;	# yield moment at plastic hinge location (i.e., My of RBS section)
-	set dbeam_89 17.99;		# depth
+	set dbeam_89 17.99;		# depth 
 
 
 # determine stiffness modifications to equate the stiffness of the spring-elastic element-spring subassembly to the stiffness of the actual frame member
@@ -1022,15 +1022,52 @@
 	set n 10.0;		# stiffness multiplier for rotational spring
 
 	# calculate modified moment of inertia for elastic elements between plastic hinge springs
-	set Icol_12mod  [expr $Icol_12*($n+1.0)/$n];	# modified moment of inertia for columns in Story 1,2 & 3
-	set Ibeam_23mod [expr $Ibeam_23*($n+1.0)/$n];	# modified moment of inertia for beams in Floor 2,3 & 4
-	
-	# calculate modified rotational stiffness for plastic hinge springs: use length between springs
-	set Ks_col_1   [expr $n*6.0*$Es*$Icol_12mod/($HStory1-$phvert234)];		# rotational stiffness of Story 1 column springs
-	set Ks_col_2   [expr $n*6.0*$Es*$Icol_12mod/($HStoryTyp-2*$phvert234)];	# rotational stiffness of Story 2 column springs
-	set Ks_col_3   [expr $n*6.0*$Es*$Icol_12mod/($HStoryTyp-2*$phvert234)];	# rotational stiffness of Story 3 column springs
-	set Ks_beam_23 [expr $n*6.0*$Es*$Ibeam_23mod/($WBay-2*$phlat234)];		# rotational stiffness of Floor 2,3 & 4 beam springs
-	
+	set Icol_1412mod  [expr $Icol_1412*($n+1.0)/$n];	# modified moment of inertia for columns in Pier 1,4 Story 1,2 
+	set Icol_2312mod  [expr $Icol_2312*($n+1.0)/$n];	# modified moment of inertia for columns in Pier 2,3 Story 1,2
+	set Icol_1434mod  [expr $Icol_1434*($n+1.0)/$n];	# modified moment of inertia for columns in Pier 1,4 Story 3,4
+	set Icol_2334mod  [expr $Icol_2334*($n+1.0)/$n];	# modified moment of inertia for columns in Pier 2,3 Story 3,4
+	set Icol_1456mod  [expr $Icol_1456*($n+1.0)/$n];	# modified moment of inertia for columns in Pier 1,4 Story 5,6
+	set Icol_2356mod  [expr $Icol_2356*($n+1.0)/$n];	# modified moment of inertia for columns in Pier 2,3 Story 5,6
+	set Icol_1478mod  [expr $Icol_1478*($n+1.0)/$n];	# modified moment of inertia for columns in Pier 1,4 Story 7,8
+	set Icol_2378mod  [expr $Icol_2378*($n+1.0)/$n];	# modified moment of inertia for columns in Pier 2,3 Story 7,8
+
+	set Ibeam_23mod [expr $Ibeam_23*($n+1.0)/$n];	# modified moment of inertia for beams in Floor 2,3
+	set Ibeam_45mod [expr $Ibeam_45*($n+1.0)/$n];	# modified moment of inertia for beams in Floor 4,5
+	set Ibeam_67mod [expr $Ibeam_67*($n+1.0)/$n];	# modified moment of inertia for beams in Floor 6,7
+	set Ibeam_89mod [expr $Ibeam_89*($n+1.0)/$n];	# modified moment of inertia for beams in Floor 8,9
+
+	# calculate modified rotational stiffness for plastic hinge springs: use length between springs // Ks_col_x1x2y x1=Pier x2=pier y=story
+	set Ks_col_141   [expr $n*6.0*$Es*$Icol_1412mod/($HStory1-$phvert23)];		# rotational stiffness of Story 1, Pier 1&4 column springs 
+	set Ks_col_231   [expr $n*6.0*$Es*$Icol_2312mod/($HStory1-$phvert23)];		# rotational stiffness of Story 1, Pier 2&3 column springs 
+	set Ks_col_142   [expr $n*6.0*$Es*$Icol_1412mod/($HStoryTyp-$phvert23-$phvert23)];	# rotational stiffness of Story 2, Pier 1&4 column springs
+	set Ks_col_232   [expr $n*6.0*$Es*$Icol_2312mod/($HStoryTyp-$phvert23-$phvert23)];	# rotational stiffness of Story 2, Pier 2&3 column springs
+	set Ks_col_143   [expr $n*6.0*$Es*$Icol_1434mod/($HStoryTyp-$phvert23-$phvert45)];	# rotational stiffness of Story 3, Pier 1&4 column springs
+	set Ks_col_233   [expr $n*6.0*$Es*$Icol_2334mod/($HStoryTyp-$phvert23-$phvert45)];	# rotational stiffness of Story 3, Pier 2&3 column springs
+	set Ks_col_144   [expr $n*6.0*$Es*$Icol_1434mod/($HStoryTyp-$phvert45-$phvert45)];	# rotational stiffness of Story 4, Pier 1&4 column springs
+	set Ks_col_234   [expr $n*6.0*$Es*$Icol_2334mod/($HStoryTyp-$phvert45-$phvert45)];	# rotational stiffness of Story 4, Pier 2&3 column springs
+	set Ks_col_145   [expr $n*6.0*$Es*$Icol_1456mod/($HStoryTyp-$phvert45-$phvert67)];	# rotational stiffness of Story 5, Pier 1&4 column springs
+	set Ks_col_235   [expr $n*6.0*$Es*$Icol_2356mod/($HStoryTyp-$phvert45-$phvert67)];	# rotational stiffness of Story 5, Pier 2&3 column springs
+	set Ks_col_146   [expr $n*6.0*$Es*$Icol_1456mod/($HStoryTyp-$phvert67-$phvert67)];	# rotational stiffness of Story 6, Pier 1&4 column springs
+	set Ks_col_236   [expr $n*6.0*$Es*$Icol_2356mod/($HStoryTyp-$phvert67-$phvert67)];	# rotational stiffness of Story 6, Pier 2&3 column springs
+	set Ks_col_147   [expr $n*6.0*$Es*$Icol_1478mod/($HStoryTyp-$phvert67-$phvert89)];	# rotational stiffness of Story 7, Pier 1&4 column springs
+	set Ks_col_237   [expr $n*6.0*$Es*$Icol_2378mod/($HStoryTyp-$phvert67-$phvert89)];	# rotational stiffness of Story 7, Pier 2&3 column springs
+	set Ks_col_148   [expr $n*6.0*$Es*$Icol_1478mod/($HStoryTyp-$phvert89-$phvert89)];	# rotational stiffness of Story 8, Pier 1&4 column springs
+	set Ks_col_238   [expr $n*6.0*$Es*$Icol_2378mod/($HStoryTyp-$phvert89-$phvert89)];	# rotational stiffness of Story 8, Pier 2&3 column springs
+
+	#Ks_beam_y1y2z y1=floor y2floor z = bay
+	set Ks_beam_231 [expr $n*6.0*$Es*$Ibeam_23mod/($WBay-$phlat1423-$phlat2323)];		# rotational stiffness of Floor 2,3 & Bay 1 beam springs
+	set Ks_beam_232 [expr $n*6.0*$Es*$Ibeam_23mod/($WBay-$phlat2323-$phlat2323)];		# rotational stiffness of Floor 2,3 & Bay 2 beam springs
+	set Ks_beam_233 [expr $n*6.0*$Es*$Ibeam_23mod/($WBay-$phlat1423-$phlat2323)];		# rotational stiffness of Floor 2,3 & Bay 3 beam springs
+	set Ks_beam_451 [expr $n*6.0*$Es*$Ibeam_45mod/($WBay-$phlat1445-$phlat2345)];		# rotational stiffness of Floor 2,3 & Bay 1 beam springs
+	set Ks_beam_452 [expr $n*6.0*$Es*$Ibeam_45mod/($WBay-$phlat2345-$phlat2345)];		# rotational stiffness of Floor 2,3 & Bay 2 beam springs
+	set Ks_beam_453 [expr $n*6.0*$Es*$Ibeam_45mod/($WBay-$phlat1445-$phlat2345)];		# rotational stiffness of Floor 2,3 & Bay 3 beam springs
+	set Ks_beam_671 [expr $n*6.0*$Es*$Ibeam_67mod/($WBay-$phlat1467-$phlat2367)];		# rotational stiffness of Floor 2,3 & Bay 1 beam springs
+	set Ks_beam_672 [expr $n*6.0*$Es*$Ibeam_67mod/($WBay-$phlat2367-$phlat2367)];		# rotational stiffness of Floor 2,3 & Bay 2 beam springs
+	set Ks_beam_673 [expr $n*6.0*$Es*$Ibeam_67mod/($WBay-$phlat1467-$phlat2367)];		# rotational stiffness of Floor 2,3 & Bay 3 beam springs
+	set Ks_beam_891 [expr $n*6.0*$Es*$Ibeam_89mod/($WBay-$phlat1489-$phlat2389)];		# rotational stiffness of Floor 2,3 & Bay 1 beam springs
+	set Ks_beam_892 [expr $n*6.0*$Es*$Ibeam_89mod/($WBay-$phlat2389-$phlat2389)];		# rotational stiffness of Floor 2,3 & Bay 2 beam springs
+	set Ks_beam_893 [expr $n*6.0*$Es*$Ibeam_89mod/($WBay-$phlat1489-$phlat2389)];		# rotational stiffness of Floor 2,3 & Bay 3 beam springs
+
 # set up geometric transformation of elements
 	set PDeltaTransf 1;
 	geomTransf PDelta $PDeltaTransf; 	# PDelta transformation
@@ -1039,14 +1076,45 @@
 	# command: element elasticBeamColumn $eleID $iNode $jNode $A $E $I $transfID
 	# eleID convention:  "1xy" where 1 = col, x = Pier #, y = Story #
 	# Columns Story 1
-	element elasticBeamColumn  111  117 125 $Acol_12 $Es $Icol_12mod $PDeltaTransf;	# Pier 1
-	element elasticBeamColumn  121  217 225 $Acol_12 $Es $Icol_12mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  111  117 125 $Acol_1412 $Es $Icol_1412mod $PDeltaTransf;	# Pier 1
+	element elasticBeamColumn  121  217 225 $Acol_2312 $Es $Icol_2312mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  131  317 325 $Acol_2312 $Es $Icol_2312mod $PDeltaTransf;	# Pier 3
+	element elasticBeamColumn  141  417 425 $Acol_1412 $Es $Icol_1412mod $PDeltaTransf;	# Pier 4
 	# Columns Story 2
-	element elasticBeamColumn  112  128 135 $Acol_12 $Es $Icol_12mod $PDeltaTransf;	# Pier 1
-	element elasticBeamColumn  122  228 235 $Acol_12 $Es $Icol_12mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  112  128 135 $Acol_1412 $Es $Icol_1412mod $PDeltaTransf;	# Pier 1
+	element elasticBeamColumn  122  228 235 $Acol_2312 $Es $Icol_2312mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  132  328 335 $Acol_2312 $Es $Icol_2312mod $PDeltaTransf;	# Pier 3
+	element elasticBeamColumn  142  428 435 $Acol_1412 $Es $Icol_1412mod $PDeltaTransf;	# Pier 4
 	# Columns Story 3
-	element elasticBeamColumn  113  138 145 $Acol_12 $Es $Icol_12mod $PDeltaTransf;	# Pier 1
-	element elasticBeamColumn  123  238 245 $Acol_12 $Es $Icol_12mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  113  138 145 $Acol_1434 $Es $Icol_1434mod $PDeltaTransf;	# Pier 1
+	element elasticBeamColumn  123  238 245 $Acol_2334 $Es $Icol_2334mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  133  338 345 $Acol_2334 $Es $Icol_2334mod $PDeltaTransf;	# Pier 3
+	element elasticBeamColumn  143  438 445 $Acol_1434 $Es $Icol_1434mod $PDeltaTransf;	# Pier 4
+	# Columns Story 4
+	element elasticBeamColumn  114  148 155 $Acol_1445 $Es $Icol_1445mod $PDeltaTransf;	# Pier 1
+	element elasticBeamColumn  124  248 255 $Acol_2345 $Es $Icol_2345mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  134  348 355 $Acol_2345 $Es $Icol_2345mod $PDeltaTransf;	# Pier 3
+	element elasticBeamColumn  144  448 455 $Acol_1445 $Es $Icol_1445mod $PDeltaTransf;	# Pier 4
+	# Columns Story 5
+	element elasticBeamColumn  115  158 165 $Acol_1456 $Es $Icol_1456mod $PDeltaTransf;	# Pier 1
+	element elasticBeamColumn  125  258 265 $Acol_2356 $Es $Icol_2356mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  135  358 365 $Acol_2356 $Es $Icol_2356mod $PDeltaTransf;	# Pier 3
+	element elasticBeamColumn  145  458 465 $Acol_1456 $Es $Icol_1456mod $PDeltaTransf;	# Pier 4
+	# Columns Story 6
+	element elasticBeamColumn  116  168 175 $Acol_1467 $Es $Icol_1467mod $PDeltaTransf;	# Pier 1
+	element elasticBeamColumn  126  268 275 $Acol_2367 $Es $Icol_2367mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  136  368 375 $Acol_2367 $Es $Icol_2367mod $PDeltaTransf;	# Pier 3
+	element elasticBeamColumn  146  468 475 $Acol_1467 $Es $Icol_1467mod $PDeltaTransf;	# Pier 4
+	# Columns Story 7
+	element elasticBeamColumn  117  178 185 $Acol_1478 $Es $Icol_1478mod $PDeltaTransf;	# Pier 1
+	element elasticBeamColumn  127  278 285 $Acol_2378 $Es $Icol_2378mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  137  378 385 $Acol_2378 $Es $Icol_2378mod $PDeltaTransf;	# Pier 3
+	element elasticBeamColumn  147  478 485 $Acol_1478 $Es $Icol_1478mod $PDeltaTransf;	# Pier 4
+	# Columns Story 8
+	element elasticBeamColumn  118  188 195 $Acol_1489 $Es $Icol_1489mod $PDeltaTransf;	# Pier 1
+	element elasticBeamColumn  128  288 295 $Acol_2389 $Es $Icol_2389mod $PDeltaTransf;	# Pier 2
+	element elasticBeamColumn  138  388 395 $Acol_2389 $Es $Icol_2389mod $PDeltaTransf;	# Pier 3
+	element elasticBeamColumn  148  488 495 $Acol_1489 $Es $Icol_1489mod $PDeltaTransf;	# Pier 4
 	
 # define elastic beam elements
 	# element between plastic hinges: eleID convention = "2xy" where 2 = beam, x = Bay #, y = Floor #
